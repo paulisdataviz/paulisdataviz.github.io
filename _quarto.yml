@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "paulisdataviz.github.io"
+  title: "Paula Muñoz"
   navbar:
     left:
       - href: index.qmd
