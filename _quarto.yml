@@ -4,16 +4,24 @@ project:
 
 website:
   title: "Paula Muñoz"
+  favicon: images/logo_paula.png
   navbar:
+    title: false
+    logo: images/logo_paula.png
     left:
       - href: index.qmd
         text: Home
       - about.qmd
+      - projects.qmd
+      - posts.qmd
+
+
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    theme: 
+        - mystyles.scss
+    mainfont: Poppins
     toc: true
 
 editor: visual

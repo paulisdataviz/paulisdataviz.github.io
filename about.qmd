@@ -4,8 +4,6 @@ title: "My Experience & Education"
 
 I have over 5 years of experience applying Data and Business Analytics techniques to support decision-making and process improvement.
 
-------------------------------------------------------------------------
-
 ## **Experience**
 
 #### **Data Visualization and Analytics Consultant,** March 2022 - Present 
@@ -24,7 +22,7 @@ I have over 5 years of experience applying Data and Business Analytics technique
 
 #### NetNumber - Global Data Services
 
--   Responsible for providing time sensitive analysis and implementing intuitive dashboards and ad-hoc reports to support the day-to-day decision-making needs regarding NetNumber\'s Global Data Services.
+-   Responsible for providing time sensitive analysis and implementing intuitive dashboards and ad-hoc reports to support the day-to-day decision-making needs regarding NetNumber's Global Data Services.
 
 -   Reported to the VP of Operations and COO.
 
@@ -46,6 +44,6 @@ I have over 5 years of experience applying Data and Business Analytics technique
 
 *University of Massachusetts*
 
-#### **BSc in Electronics\' Engineering, 2007**
+#### **BSc in Electronics' Engineering, 2007**
 
 *Santo Tomás de Aquino University*

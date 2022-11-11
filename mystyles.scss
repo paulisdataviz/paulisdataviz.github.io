@@ -1,0 +1,50 @@
+/*-- scss:defaults --*/
+
+// Colors
+$light-sage-green: #D1D9CE;
+$dark-sage-green: #98A08D;
+$cream: #FDFBF7;
+$other_gray: #64605f;
+$light-gray: #949799;
+$super_soft_green: #eff2ef;
+$soft_green: #eaf5ef;
+$soft_green_2: #dbe8dd;
+$my_yellow:#fedc96;
+$my_pink: #fcb9c2;
+$my_purple:#b5b5f0;
+$dark_blue:#282f48;
+$my_teal: #29abbd;
+$soft_blue: #f1f6f9;
+$my_gray: #7e7f8b;
+$my_white: #fafcfd;
+
+// Base document colors
+$navbar-bg: $soft_blue; // navbar
+$navbar-fg: $dark_blue; // navbar foreground elements
+$navbar-hl: $my_teal; // highlight color when hovering over navbar links
+$body-bg: $my_white; // page background 
+$body-color: $dark_blue; // page text 
+$footer-bg: $cream; // footer 
+$link-color: $my_purple; // hyperlinks 
+
+// Inline code
+$code-bg: $cream; // inline code background color
+$code-color: $my_teal; // inline code text color
+
+// Code blocks
+$code-block-bg: $cream; // code block background color
+
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900|Yeseva+One&display=swap");
+$font-family-base: "Poppins", sans-serif;
+$headings-font-family: "Poppins", cursive;
+
+/*-- scss:rules --*/
+
+h1, h2 {
+  letter-spacing: 2px;
+  color: $my_teal;
+}
+
+

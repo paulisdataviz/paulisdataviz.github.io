@@ -6,11 +6,14 @@ about:
   image-shape: rounded
   image-width: 15em
   links:
-    - text: LinkedIn
+    - icon: linkedin
+      text: LinkedIn
       href: https://www.linkedin.com/in/paulamunoz1/
-    - text: Twitter
+    - icon: twitter
+      text: Twitter
       href: https://twitter.com/paulisDataViz
-    - text: GitHub
+    - icon: github
+      text: GitHub
       href: https://github.com/paulisdataviz
     - text: Tableau Public
       href: https://public.tableau.com/app/profile/paula.munoz
@@ -44,9 +47,9 @@ I'm passionate about:
 
 ### **More about me**
 
-I\'m a Techie and lifelong learner. When I\'m not working or enjoying time with my family. I like to spend time improving my skills and learning new tools or techniques.
+I'm a Techie and lifelong learner. When I'm not working or enjoying time with my family. I like to spend time improving my skills and learning new tools or techniques.
 
-I graduated as an Electronics\' Engineer. I have a second B.S in Information Technology and hold a M.S. in Telecommunications Systems Management.
+I graduated as an Electronics' Engineer. I have a second B.S in Information Technology and hold a M.S. in Telecommunications Systems Management.
 
 After spending several years working in the Telecom Industry within the areas of Technical Support, Network Engineering and Operations I discovered Data Analytics and became very passionate about Data Science and Data Visualization.
 
