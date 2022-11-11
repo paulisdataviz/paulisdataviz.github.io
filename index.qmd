@@ -16,10 +16,38 @@ about:
       href: https://public.tableau.com/app/profile/paula.munoz
 ---
 
-This is a Quarto website.
+## **Hi, I'm Paula**
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+### **Data Analytics and Visualization Consultant at Cleartelligence**
 
-```{r}
-1 + 1
-```
+#### **I design and build awesome data analytics and visualization products.**
+
+My favorite tools are Tableau and R.
+
+I have experience manipulating data and working with other tools including Snowflake, Alteryx, Tableau Prep Builder among others.
+
+I'm passionate about:
+
+-   Data Visualization
+
+-   Data Wrangling
+
+-   Data Science
+
+-   R
+
+-   Tableau
+
+-   SQL
+
+------------------------------------------------------------------------
+
+### **More about me**
+
+I\'m a Techie and lifelong learner. When I\'m not working or enjoying time with my family. I like to spend time improving my skills and learning new tools or techniques.
+
+I graduated as an Electronics\' Engineer. I have a second B.S in Information Technology and hold a M.S. in Telecommunications Systems Management.
+
+After spending several years working in the Telecom Industry within the areas of Technical Support, Network Engineering and Operations I discovered Data Analytics and became very passionate about Data Science and Data Visualization.
+
+------------------------------------------------------------------------

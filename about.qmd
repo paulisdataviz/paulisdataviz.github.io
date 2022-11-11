@@ -1,9 +1,51 @@
 ---
-title: "About"
+title: "My Experience & Education"
 ---
 
-About this site
+I have over 5 years of experience applying Data and Business Analytics techniques to support decision-making and process improvement.
 
-```{r}
-1 + 1
-```
+------------------------------------------------------------------------
+
+## **Experience**
+
+#### **Data Visualization and Analytics Consultant,** March 2022 - Present 
+
+#### [Cleartelligence](https://www.cleartelligence.com/)
+
+-   Translate complex business issues into structured analysis.
+
+-   Develop rich interactive visualizations, that are intuitive, easy to use and understand using Tableau.
+
+-   Prepare, blend and cleanse data.
+
+-   Create robust documentation of solutions and operating procedures to transition support.
+
+#### **Product Analyst \| Data Scientist \| Manager Data Solutions,** 2017-2022 
+
+#### NetNumber - Global Data Services
+
+-   Responsible for providing time sensitive analysis and implementing intuitive dashboards and ad-hoc reports to support the day-to-day decision-making needs regarding NetNumber\'s Global Data Services.
+
+-   Reported to the VP of Operations and COO.
+
+-   Hired, trained and mentored two Junior Data Analysts.
+
+-   Partnered directly with the executive team as the first data hire to formulate and report on Global Data Services KPIs using Tableau.
+
+-   Designed Profit margin analysis Dashboards to identify savings opportunities, high risk customers, and assess new pricing
+
+------------------------------------------------------------------------
+
+## **Education**
+
+#### **MSc in Telecommunications Systems Management,** 2016
+
+*Northeastern University*
+
+#### **BSc in Information Technology, 2012**
+
+*University of Massachusetts*
+
+#### **BSc in Electronics\' Engineering, 2007**
+
+*Santo Tomás de Aquino University*
