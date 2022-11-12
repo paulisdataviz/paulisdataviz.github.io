@@ -1,0 +1,169 @@
+---
+title: "Tableau Workbook Analyzer App with R Flexdashboard and Shiny"
+description: "Building an App to analyze .twb files, extract & download formulas from calculated fields, and retrieve formatting options such as fonts and Hex Colors used."
+author:
+  - name: Paula Muñoz
+    url: https://paulisdataviz.shinyapps.io/tableau_workbook_analyzer/
+categories: [Tableau, R, Flexdashboard, Shiny, XML] # self-defined categories
+date: 11-16-2022
+image: tableau_workbook_analyzer.png
+draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
+
+editor: visual
+---
+
+If you are a Tableau user or developer you may have found yourself in a situation where you need or would like to extract **all** **formulas at once** from all calculated fields to later find out there is no simple way to achieve this task. 😟
+
+I have been in this situation several times, and after giving it some thought, I decided to build my own App and leverage the capabilities of **Flexdashboard + Shiny** in **R.**
+
+This is the first app I have ever built, and I know it is not perfect, but I learned a lot and had so much fun along the way, but most importantly I know it would be very useful and hope you think the same.
+
+I would like to specially thank **Matt Dancho** who I consider my mentor and from whom I learned what I know about R, all his [R Business Science courses](https://www.business-science.io/) are excellent and his support is unconditional. If you are looking to learn R and get into Data Science, I fully recommend taking his R-Track courses.
+
+Without further ado let me introduce the:
+
+## Tableau Workbook Analyzer App
+
+[Test App here!](https://paulisdataviz.shinyapps.io/tableau_workbook_analyzer/)
+
+![](tableau_workbook_analyzer.gif)
+
+------------------------------------------------------------------------
+
+### How does the App work?
+
+1.  Upload a .twb file
+
+2.  Wait for results to display (Some files may take longer to return results depending on how big the file is and how many attributes are getting analyzed).
+
+A .twb file contains the Tableau workbook metadata in the form of structured **XML** tree, and all that was needed was to write some code to extract the relevant elements from the XML tree.
+
+As mentioned before, the .twb only contains **metadata** information about the tableau workbook and it does NOT contain any actual data that was used in the workbook itself.
+
+![Example of metadata inculded in .twb / XML file](images/paste-CB388FBD.png){fig-align="center" width="1300"}
+
+------------------------------------------------------------------------
+
+### What Analysis / information is being returned by the App?
+
+Initially I was mainly interested in retrieving calculated field formulas, but during the development process I got curious what other pieces of information could be retrieved that would help answer questions such as what fields are used or not used?, are there data sources added to the workbook that may not be used? and more.
+
+Also during the final stages of the development process, I reached out to some close friends and members of the Tableau Community asking for feedback and they came back with some awesome ideas such as retrieving Color Palette information. **Thank you datafam friends and [#VizOfficeHours](https://twitter.com/hashtag/VizOfficeHours?src=hashtag_click)!**
+
+I broke down the App into three main tabs:
+
+![](nav_bar.png){fig-align="center"}
+
+I used the same legend throughout the App to represent objects that are used vs not used in dashboards.
+
+![](Legend.png){fig-align="center" width="253"}
+
+Below is at a high level the information found. **Click on each tab to learn more:**
+
+::: panel-tabset
+#### **Workbook Summary**
+
+This section contains a summary of the workbook including:
+
+-   **Tableau Workbook Name**
+
+-   **Total number of fields** used vs not used
+
+-   **Data Sources** used vs not used
+
+-   Data Source **Tables** used vs not used
+
+-   **Worksheets** used vs not used
+
+-   **Dashboards**
+
+    ![](workbook_summary_1.png){width="1300"}
+
+-   **Collapsible tree** that allows to see the flow from:
+
+    Data Source -\> Dashboard Name -\> Worksheet Name -\> Field Type - Field Name
+
+![](collapsible_tree.png){width="1300"}
+
+-   Table with **Filters found in worksheets.** Table can be exported and it is editable (by double clicking in values).
+
+    ![](filters.png){width="1300"}
+
+#### **Column & Calculated Fields Details**
+
+I would think this section contains the most interesting information... It has all information about the columns / fields.
+
+First of all, the side panel has various filters:
+
++--------------------------------------------------------------------------------------------------------------------------------------+------------------------------------+
+| -   **Used in dashboards?** - Toggle this filter to update results based on used/ not used fields                                    | ![](side_filters.png){width="152"} |
+|                                                                                                                                      |                                    |
+| -   **Field Type** - Select between 'Calculated Field', 'Parameter' and 'Raw Variable', default is set to display all type of fields |                                    |
+|                                                                                                                                      |                                    |
+| -   **Fields Filter** - Select specific fields to review                                                                             |                                    |
+|                                                                                                                                      |                                    |
+| -   **Custom information to be added/ removed** **to/ from field Details table** - This filter only applies to Fields Details table  |                                    |
++--------------------------------------------------------------------------------------------------------------------------------------+------------------------------------+
+
+As far as information being displayed under this tab, the top section displays:
+
+-   Distribution of **fields by role** - Dimension / Measures
+
+-   Distribution of **fields by data type** - String / Integer / date...
+
+-   Distribution of **fields by type** - Raw Variables / Calculated Fields / Parameters
+
+    ![](bar_charts.png){width="1300"}
+
+The bottom section contains:
+
+-   **Fields Detail** table - Contains all relevant information about columns/ fields.
+
+    -   Select information to be added/ remove to table using filter menu on sidebar
+
+    -   Table is editable (double click on a value and edit)
+
+    -   Search values across tables (This would work like a filter)
+
+    -   Copy or export table details to CSV or EXCEL
+
+![](images/paste-ECD7A4EC.png)
+
+-   **What fields are used and how many times** - Bar chart:
+
+![](images/paste-F87C3B7D.png)
+
+#### **Formatting**
+
+Last but not least, the formatting tab displays some formatting attributes found in the workbook and they are sorted by most to least used.
+
+-   **Font Names**
+
+-   **Font Sizes**
+
+-   **Font Colors**
+
+-   **Mark Colors**
+
+-   **Consolidated list of hex colors** used - Similar to other tables in the App, this table can be edited, searched on and copied/ exported.
+
+![](images/paste-20CA51E9.png)
+:::
+
+### Where is the App hosted?
+
+The App is hosted at [**Shinyapps.io.**](https://www.shinyapps.io/)under their **Free** tier service. Shinyapps.io is a platform for hosting Shiny web applications.
+
+Availability of the App is dependent on how many active hours the app has been running in a given month.
+
+### About Storage
+
+Before talking about storage, just a reminder that a .twb file only contains metadata about the Tableau workbook (source names, column names, formatting information...) and it does not contain the actual data used in workbook itself.
+
+Since App is hosted at Shinyapps.io, below are some information about storage: [shinyapps.io documentation](https://docs.rstudio.com/shinyapps.io/Storage.html#understanding-the-storage-lifecycle):
+
+*"Each application deployed to shinyapps.io creates storage in its own private file system when the application starts to run. The application **only** has access to the data that was uploaded with the application at the time of deployment. "*
+
+*"The storage will be persistent while the application is in the Running state. After the idle timeout is reached, the application will be put into a Sleeping state, and any changes to the file system will be lost."*
+
+*"If your shiny application collects information that you would like to have persisted, you will need to write the data to a persistent data store (e.g., databases, Dropbox, Google Sheets, S3 etc.)" \<-* I have not implemented any of this, which means the data uploaded to the app is lost once the application goes to iddle state, to facilitate this I have added a "clos

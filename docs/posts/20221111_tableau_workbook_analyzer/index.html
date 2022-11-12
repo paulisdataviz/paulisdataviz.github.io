@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Paula Muñoz">
+<meta name="dcterms.date" content="2022-11-16">
+<meta name="description" content="Building an App to analyze .twb files, extract &amp; download formulas from calculated fields, and retrieve formatting options such as fonts and Hex Colors used.">
+
+<title>Paula Muñoz - Tableau Workbook Analyzer App with R Flexdashboard and Shiny</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/logo_paula.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <img src="../../images/logo_paula.png" alt="">
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html">Home</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts.html">Posts</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">My Experience &amp; Education</a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Tableau Workbook Analyzer App with R Flexdashboard and Shiny</h1>
+                  <div>
+        <div class="description">
+          Building an App to analyze .twb files, extract &amp; download formulas from calculated fields, and retrieve formatting options such as fonts and Hex Colors used.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Tableau</div>
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">Flexdashboard</div>
+                <div class="quarto-category">Shiny</div>
+                <div class="quarto-category">XML</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Paula Muñoz </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">November 16, 2022</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#tableau-workbook-analyzer-app" id="toc-tableau-workbook-analyzer-app" class="nav-link active" data-scroll-target="#tableau-workbook-analyzer-app">Tableau Workbook Analyzer App</a>
+  <ul class="collapse">
+  <li><a href="#how-does-the-app-work" id="toc-how-does-the-app-work" class="nav-link" data-scroll-target="#how-does-the-app-work">How does the App work?</a></li>
+  <li><a href="#what-analysis-information-is-being-returned-by-the-app" id="toc-what-analysis-information-is-being-returned-by-the-app" class="nav-link" data-scroll-target="#what-analysis-information-is-being-returned-by-the-app">What Analysis / information is being returned by the App?</a></li>
+  <li><a href="#where-is-the-app-hosted" id="toc-where-is-the-app-hosted" class="nav-link" data-scroll-target="#where-is-the-app-hosted">Where is the App hosted?</a></li>
+  <li><a href="#about-storage" id="toc-about-storage" class="nav-link" data-scroll-target="#about-storage">About Storage</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>If you are a Tableau user or developer you may have found yourself in a situation where you need or would like to extract <strong>all</strong> <strong>formulas at once</strong> from all calculated fields to later find out there is no simple way to achieve this task. 😟</p>
+<p>I have been in this situation several times, and after giving it some thought, I decided to build my own App and leverage the capabilities of <strong>Flexdashboard + Shiny</strong> in <strong>R.</strong></p>
+<p>This is the first app I have ever built, and I know it is not perfect, but I learned a lot and had so much fun along the way, but most importantly I know it would be very useful and hope you think the same.</p>
+<p>I would like to specially thank <strong>Matt Dancho</strong> who I consider my mentor and from whom I learned what I know about R, all his <a href="https://www.business-science.io/">R Business Science courses</a> are excellent and his support is unconditional. If you are looking to learn R and get into Data Science, I fully recommend taking his R-Track courses.</p>
+<p>Without further ado let me introduce the:</p>
+<section id="tableau-workbook-analyzer-app" class="level2">
+<h2 class="anchored" data-anchor-id="tableau-workbook-analyzer-app">Tableau Workbook Analyzer App</h2>
+<p><a href="https://paulisdataviz.shinyapps.io/tableau_workbook_analyzer/">Test App here!</a></p>
+<p><img src="tableau_workbook_analyzer.gif" class="img-fluid"></p>
+<hr>
+<section id="how-does-the-app-work" class="level3">
+<h3 class="anchored" data-anchor-id="how-does-the-app-work">How does the App work?</h3>
+<ol type="1">
+<li><p>Upload a .twb file</p></li>
+<li><p>Wait for results to display (Some files may take longer to return results depending on how big the file is and how many attributes are getting analyzed).</p></li>
+</ol>
+<p>A .twb file contains the Tableau workbook metadata in the form of structured <strong>XML</strong> tree, and all that was needed was to write some code to extract the relevant elements from the XML tree.</p>
+<p>As mentioned before, the .twb only contains <strong>metadata</strong> information about the tableau workbook and it does NOT contain any actual data that was used in the workbook itself.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/paste-CB388FBD.png" class="img-fluid figure-img" width="1300"></p>
+<p></p><figcaption class="figure-caption">Example of metadata inculded in .twb / XML file</figcaption><p></p>
+</figure>
+</div>
+<hr>
+</section>
+<section id="what-analysis-information-is-being-returned-by-the-app" class="level3">
+<h3 class="anchored" data-anchor-id="what-analysis-information-is-being-returned-by-the-app">What Analysis / information is being returned by the App?</h3>
+<p>Initially I was mainly interested in retrieving calculated field formulas, but during the development process I got curious what other pieces of information could be retrieved that would help answer questions such as what fields are used or not used?, are there data sources added to the workbook that may not be used? and more.</p>
+<p>Also during the final stages of the development process, I reached out to some close friends and members of the Tableau Community asking for feedback and they came back with some awesome ideas such as retrieving Color Palette information. <strong>Thank you datafam friends and <a href="https://twitter.com/hashtag/VizOfficeHours?src=hashtag_click">#VizOfficeHours</a>!</strong></p>
+<p>I broke down the App into three main tabs:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="nav_bar.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<p>I used the same legend throughout the App to represent objects that are used vs not used in dashboards.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Legend.png" class="img-fluid figure-img" width="253"></p>
+</figure>
+</div>
+<p>Below is at a high level the information found. <strong>Click on each tab to learn more:</strong></p>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true"><strong>Workbook Summary</strong></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><strong>Column &amp; Calculated Fields Details</strong></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false"><strong>Formatting</strong></a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>This section contains a summary of the workbook including:</p>
+<ul>
+<li><p><strong>Tableau Workbook Name</strong></p></li>
+<li><p><strong>Total number of fields</strong> used vs not used</p></li>
+<li><p><strong>Data Sources</strong> used vs not used</p></li>
+<li><p>Data Source <strong>Tables</strong> used vs not used</p></li>
+<li><p><strong>Worksheets</strong> used vs not used</p></li>
+<li><p><strong>Dashboards</strong></p>
+<p><img src="workbook_summary_1.png" class="img-fluid" width="1300"></p></li>
+<li><p><strong>Collapsible tree</strong> that allows to see the flow from:</p>
+<p>Data Source -&gt; Dashboard Name -&gt; Worksheet Name -&gt; Field Type - Field Name</p></li>
+</ul>
+<p><img src="collapsible_tree.png" class="img-fluid" width="1300"></p>
+<ul>
+<li><p>Table with <strong>Filters found in worksheets.</strong> Table can be exported and it is editable (by double clicking in values).</p>
+<p><img src="filters.png" class="img-fluid" width="1300"></p></li>
+</ul>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>I would think this section contains the most interesting information… It has all information about the columns / fields.</p>
+<p>First of all, the side panel has various filters:</p>
+<table class="table">
+<colgroup>
+<col style="width: 78%">
+<col style="width: 21%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><ul>
+<li><p><strong>Used in dashboards?</strong> - Toggle this filter to update results based on used/ not used fields</p></li>
+<li><p><strong>Field Type</strong> - Select between ‘Calculated Field’, ‘Parameter’ and ‘Raw Variable’, default is set to display all type of fields</p></li>
+<li><p><strong>Fields Filter</strong> - Select specific fields to review</p></li>
+<li><p><strong>Custom information to be added/ removed</strong> <strong>to/ from field Details table</strong> - This filter only applies to Fields Details table</p></li>
+</ul></td>
+<td><img src="side_filters.png" class="img-fluid" width="152"></td>
+</tr>
+</tbody>
+</table>
+<p>As far as information being displayed under this tab, the top section displays:</p>
+<ul>
+<li><p>Distribution of <strong>fields by role</strong> - Dimension / Measures</p></li>
+<li><p>Distribution of <strong>fields by data type</strong> - String / Integer / date…</p></li>
+<li><p>Distribution of <strong>fields by type</strong> - Raw Variables / Calculated Fields / Parameters</p>
+<p><img src="bar_charts.png" class="img-fluid" width="1300"></p></li>
+</ul>
+<p>The bottom section contains:</p>
+<ul>
+<li><p><strong>Fields Detail</strong> table - Contains all relevant information about columns/ fields.</p>
+<ul>
+<li><p>Select information to be added/ remove to table using filter menu on sidebar</p></li>
+<li><p>Table is editable (double click on a value and edit)</p></li>
+<li><p>Search values across tables (This would work like a filter)</p></li>
+<li><p>Copy or export table details to CSV or EXCEL</p></li>
+</ul></li>
+</ul>
+<p><img src="images/paste-ECD7A4EC.png" class="img-fluid"></p>
+<ul>
+<li><strong>What fields are used and how many times</strong> - Bar chart:</li>
+</ul>
+<p><img src="images/paste-F87C3B7D.png" class="img-fluid"></p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>Last but not least, the formatting tab displays some formatting attributes found in the workbook and they are sorted by most to least used.</p>
+<ul>
+<li><p><strong>Font Names</strong></p></li>
+<li><p><strong>Font Sizes</strong></p></li>
+<li><p><strong>Font Colors</strong></p></li>
+<li><p><strong>Mark Colors</strong></p></li>
+<li><p><strong>Consolidated list of hex colors</strong> used - Similar to other tables in the App, this table can be edited, searched on and copied/ exported.</p></li>
+</ul>
+<p><img src="images/paste-20CA51E9.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="where-is-the-app-hosted" class="level3">
+<h3 class="anchored" data-anchor-id="where-is-the-app-hosted">Where is the App hosted?</h3>
+<p>The App is hosted at <a href="https://www.shinyapps.io/"><strong>Shinyapps.io.</strong></a>under their <strong>Free</strong> tier service. Shinyapps.io is a platform for hosting Shiny web applications.</p>
+<p>Availability of the App is dependent on how many active hours the app has been running in a given month.</p>
+</section>
+<section id="about-storage" class="level3">
+<h3 class="anchored" data-anchor-id="about-storage">About Storage</h3>
+<p>Before talking about storage, just a reminder that a .twb file only contains metadata about the Tableau workbook (source names, column names, formatting information…) and it does not contain the actual data used in workbook itself.</p>
+<p>Since App is hosted at Shinyapps.io, below are some information about storage: <a href="https://docs.rstudio.com/shinyapps.io/Storage.html#understanding-the-storage-lifecycle">shinyapps.io documentation</a>:</p>
+<p><em>“Each application deployed to shinyapps.io creates storage in its own private file system when the application starts to run. The application <strong>only</strong> has access to the data that was uploaded with the application at the time of deployment.”</em></p>
+<p><em>“The storage will be persistent while the application is in the Running state. After the idle timeout is reached, the application will be put into a Sleeping state, and any changes to the file system will be lost.”</em></p>
+<p><em>“If your shiny application collects information that you would like to have persisted, you will need to write the data to a persistent data store (e.g., databases, Dropbox, Google Sheets, S3 etc.)” &lt;-</em> I have not implemented any of this, which means the data uploaded to the app is lost once the application goes to iddle state, to facilitate this I have added a “clos</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

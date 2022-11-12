@@ -66,9 +66,9 @@ ul.task-list{list-style: none;}
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -108,13 +108,10 @@ ul.task-list{list-style: none;}
     <a class="nav-link" href="./index.html">Home</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html">My Experience &amp; Education</a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./projects.html">Projects</a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link active" href="./posts.html" aria-current="page">Posts</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html">My Experience &amp; Education</a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -128,7 +125,7 @@ ul.task-list{list-style: none;}
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Quarto">Quarto <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Flexdashboard">Flexdashboard <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Shiny">Shiny <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Tableau">Tableau <span class="quarto-category-count">(1)</span></div><div class="category" data-category="XML">XML <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -154,37 +151,49 @@ ul.task-list{list-style: none;}
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Quarto,R" data-listing-file-modified-sort="1668189232300" data-listing-reading-time-sort="0.005">
+<div class="quarto-post image-right" data-index="0" data-categories="Tableau,R,Flexdashboard,Shiny,XML" data-listing-date-sort="1668574800000" data-listing-file-modified-sort="1668283226630" data-listing-reading-time-sort="9.2">
 <div class="thumbnail">
-<p><a href="./posts/20221111_test_blog/index.html"> <img src="./posts/20221111_test_blog/logo_paula.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/20221111_tableau_workbook_analyzer/index.html"> <img src="./posts/20221111_tableau_workbook_analyzer/tableau_workbook_analyzer.png" class="thumnail-image"> </a></p>
 </div>
 <div class="body">
-<a href="./posts/20221111_test_blog/index.html">
+<a href="./posts/20221111_tableau_workbook_analyzer/index.html">
 <h3 class="no-anchor listing-title">
-Blog Post Title
+Tableau Workbook Analyzer App with R Flexdashboard and Shiny
 </h3>
 <div class="listing-subtitle">
 
 </div>
 </a>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Quarto'); return false;">
-Quarto
+<div class="listing-category" onclick="window.quartoListingCategory('Tableau'); return false;">
+Tableau
 </div>
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
 R
 </div>
+<div class="listing-category" onclick="window.quartoListingCategory('Flexdashboard'); return false;">
+Flexdashboard
 </div>
-<a href="./posts/20221111_test_blog/index.html">
+<div class="listing-category" onclick="window.quartoListingCategory('Shiny'); return false;">
+Shiny
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('XML'); return false;">
+XML
+</div>
+</div>
+<a href="./posts/20221111_tableau_workbook_analyzer/index.html">
 <div class="listing-description">
-<p>blog post description (appears underneath the title in smaller text) which is included on the listing page</p>
+<p>Building an App to analyze .twb files, extract &amp; download formulas from calculated fields, and retrieve formatting options such as fonts and Hex Colors used.</p>
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/20221111_test_blog/index.html">
+<a href="./posts/20221111_tableau_workbook_analyzer/index.html">
+<div class="listing-date">
+Nov 16, 2022
+</div>
 <div class="listing-author">
-Paula Munoz
+Paula Muñoz
 </div>
 </a>
 </div>

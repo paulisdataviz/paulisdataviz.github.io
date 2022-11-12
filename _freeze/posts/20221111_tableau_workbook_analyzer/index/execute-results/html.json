@@ -1,0 +1,14 @@
+{
+  "hash": "4a1efeb6b0d8ba6515294ffe71297869",
+  "result": {
+    "markdown": "---\ntitle: \"Tableau Workbook Analyzer App with Flexdahboard and Shiny\"\ndescription: \"Building an App to analyze .twb files, extract & download formulas from calculated fields, and retrieve formatting options such as fonts and Hex Colors used.\"\nauthor:\n  - name: Paula Muñoz\n    url: https://paulisdataviz.shinyapps.io/tableau_workbook_analyzer/\ncategories: [Tableau, R, Flexdashboard, Shiny, XML] # self-defined categories\ndate: 11-16-2022\nimage: tableau_workbook_analyzer.png\ndraft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!\n\neditor: visual\n---\n\n\n![](tableau_workbook_analyzer.gif)\n\nIf you are a Tableau user/ developer you may have found yourself in a situation where you need or would like to extract all formulas at once from calculated fields to later find out there is no simple way to do so. `` [`<svg aria-label=\"Video\" role=\"img\" viewBox=\"0 0 576 512\" style=\"height:1em;width:1.12em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#64605F;overflow:visible;position:relative;\"><title>Video</title><path d=\"M384 112v288c0 26.51-21.49 48-48 48h-288c-26.51 0-48-21.49-48-48v-288c0-26.51 21.49-48 48-48h288C362.5 64 384 85.49 384 112zM576 127.5v256.9c0 25.5-29.17 40.39-50.39 25.79L416 334.7V177.3l109.6-75.56C546.9 87.13 576 102.1 576 127.5z\"/></svg>`{=html} here] ``\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

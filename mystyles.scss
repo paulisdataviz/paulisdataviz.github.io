@@ -17,6 +17,8 @@ $my_teal: #29abbd;
 $soft_blue: #f1f6f9;
 $my_gray: #7e7f8b;
 $my_white: #fafcfd;
+$my_orange: #f39c4c;
+$bright_purple: #9c4cf3;
 
 // Base document colors
 $navbar-bg: $soft_blue; // navbar
@@ -25,7 +27,7 @@ $navbar-hl: $my_teal; // highlight color when hovering over navbar links
 $body-bg: $my_white; // page background 
 $body-color: $dark_blue; // page text 
 $footer-bg: $cream; // footer 
-$link-color: $my_purple; // hyperlinks 
+$link-color: $bright_purple; // hyperlinks 
 
 // Inline code
 $code-bg: $cream; // inline code background color
