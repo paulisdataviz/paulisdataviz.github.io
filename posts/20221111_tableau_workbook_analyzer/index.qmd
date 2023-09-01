@@ -5,7 +5,7 @@ author:
   - name: Paula Muñoz
     url: https://paulisdataviz.shinyapps.io/tableau_workbook_analyzer/
 categories: [Tableau, R, Flexdashboard, Shiny, XML] # self-defined categories
-date: 11-16-2022
+date: 11-20-2022
 image: tableau_workbook_analyzer.png
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 
@@ -16,15 +16,13 @@ If you are a Tableau user or developer you may have found yourself in a situatio
 
 I have been in this situation several times, and after giving it some thought, I decided to build my own App and leverage the capabilities of **Flexdashboard + Shiny** in **R.**
 
-This is the first app I have ever built, and I know it is not perfect, but I learned a lot and had so much fun along the way, but most importantly I know it would be very useful and hope you think the same.
+This is the first app I have ever built, and I know it is not perfect, but I learned a lot and had so much fun along the way, but most importantly I know it would be very useful and hope you would think the same.
 
 I would like to specially thank **Matt Dancho** who I consider my mentor and from whom I learned what I know about R, all his [R Business Science courses](https://www.business-science.io/) are excellent and his support is unconditional. If you are looking to learn R and get into Data Science, I fully recommend taking his R-Track courses.
 
 Without further ado let me introduce the:
 
 ## Tableau Workbook Analyzer App
-
-[Test App here!](https://paulisdataviz.shinyapps.io/tableau_workbook_analyzer/)
 
 ![](tableau_workbook_analyzer.gif)
 
@@ -40,7 +38,25 @@ A .twb file contains the Tableau workbook metadata in the form of structured **X
 
 As mentioned before, the .twb only contains **metadata** information about the tableau workbook and it does NOT contain any actual data that was used in the workbook itself.
 
-![Example of metadata inculded in .twb / XML file](images/paste-CB388FBD.png){fig-align="center" width="1300"}
+![*Example of metadata inculded in .twb / XML file*](images/paste-CB388FBD.png){fig-align="center" width="1300"}
+
+If you are wondering how I parsed and extracted the data, below is the sample code I used to extract Data Sources information from .twb file using the library xml2, the main steps in this process are:
+
+1.  Identify the parent node: **"//datasource"**
+
+2.  Identify the attributes to extract:
+
+    1.  Extract data source caption: **"caption"**
+
+    2.  Extract data source name: **"name"**
+
+3.  Save results into a data frame
+
+4.  Do some data wrangling / cleaning steps (impute NAs and keep unique values) to be able to make sense of data.
+
+![](images/paste-9330A47F.png)
+
+![](images/paste-86166C88.png)
 
 ------------------------------------------------------------------------
 
@@ -50,7 +66,7 @@ Initially I was mainly interested in retrieving calculated field formulas, but d
 
 Also during the final stages of the development process, I reached out to some close friends and members of the Tableau Community asking for feedback and they came back with some awesome ideas such as retrieving Color Palette information. **Thank you datafam friends and [#VizOfficeHours](https://twitter.com/hashtag/VizOfficeHours?src=hashtag_click)!**
 
-I broke down the App into three main tabs:
+I broke down the App into three main tabs / sections:
 
 ![](nav_bar.png){fig-align="center"}
 
@@ -150,20 +166,58 @@ Last but not least, the formatting tab displays some formatting attributes found
 ![](images/paste-20CA51E9.png)
 :::
 
+------------------------------------------------------------------------
+
 ### Where is the App hosted?
 
-The App is hosted at [**Shinyapps.io.**](https://www.shinyapps.io/)under their **Free** tier service. Shinyapps.io is a platform for hosting Shiny web applications.
+The App is hosted at **Shinyapps.io.**
 
-Availability of the App is dependent on how many active hours the app has been running in a given month.
+Shinyapps.io is a platform for hosting Shiny web applications. To learn more about Shinnyapss.io [Click here!](https://www.shinyapps.io/)
 
-### About Storage
+App can be tested [here!](https://paulisdataviz.shinyapps.io/tableau_workbook_analyzer/)
 
-Before talking about storage, just a reminder that a .twb file only contains metadata about the Tableau workbook (source names, column names, formatting information...) and it does not contain the actual data used in workbook itself.
+::: {.callout-caution appearance="simple"}
+**I would recommend to only use the App hosted online at Shinyapps.io for your personal projects only**, and avoid uploading any .twb file that may contain any confidential / work related tableau workbook information.
 
-Since App is hosted at Shinyapps.io, below are some information about storage: [shinyapps.io documentation](https://docs.rstudio.com/shinyapps.io/Storage.html#understanding-the-storage-lifecycle):
+**If you are interested in running this app locally in your computer /server, please reach out to me,** and I can give you access to the source code (Pre-requisite would be to have R and RStudio installed).
+:::
 
-*"Each application deployed to shinyapps.io creates storage in its own private file system when the application starts to run. The application **only** has access to the data that was uploaded with the application at the time of deployment. "*
+The app is hosted under Shinyapps.io **Free** tier service, and availability of the App is dependent on how many active hours the app has been running in a given month.
+
+------------------------------------------------------------------------
+
+### About Security and Storage
+
+A .twb file only contains metadata about the Tableau workbook and it does not contain the actual data used in the workbook itself.
+
+The .twb file uploaded to the App is encrypted with HTTPS.
+
+The App is not writing the data to a persistent data store, which means the data uploaded to the app is lost once the application goes into iddle state, and to facilitate this I have added buttons across the different tabs to clear the session and close the window.
+
+::: {.callout-caution appearance="simple"}
+Having that said, **I would recommend to only use the App hosted online at Shinyapps.io for your personal projects only**, and avoid uploading any .twb file that may contain any confidential / work related tableau workbook information.
+
+**If you are interested in running this app locally in your computer /server, please reach out to me,** and I can give you access to the source code (Pre-requisite would be to have R and RStudio installed).
+:::
+
+For more information about Security and Storage in Shinyapps.io, I have extracted below from Posit and shinnyapps.io websites:
+
+*"Posit is a data processor with respect to data processed by Posit Cloud Services, including [posit.cloud](https://posit.cloud/) and [shinyapps.io](https://shinyapps.io/). Posit maintains appropriate technical and organizational security measures designed to protect the security, confidentiality, integrity and availability of data processed by Posit Cloud Services. **All communication between customers and Posit Cloud Services is encrypted with HTTPS.** Within Posit Cloud Services, data at-rest is also encrypted."* [read more here](https://posit.co/about/posit-and-the-gdpr-what-you-need-to-know/)
+
+*"Each application deployed to shinyapps.io creates storage in its own private file system when the application starts to run. The application **only** has access to the data that was uploaded with the application at the time of deployment."*
 
 *"The storage will be persistent while the application is in the Running state. After the idle timeout is reached, the application will be put into a Sleeping state, and any changes to the file system will be lost."*
 
-*"If your shiny application collects information that you would like to have persisted, you will need to write the data to a persistent data store (e.g., databases, Dropbox, Google Sheets, S3 etc.)" \<-* I have not implemented any of this, which means the data uploaded to the app is lost once the application goes to iddle state, to facilitate this I have added a "clos
+*"If your shiny application collects information that you would like to have persisted, you will need to write the data to a persistent data store (e.g., databases, Dropbox, Google Sheets, S3 etc.)"* [shinyapps.io documentation](https://docs.rstudio.com/shinyapps.io/Storage.html#understanding-the-storage-lifecycle)
+
+------------------------------------------------------------------------
+
+### [Ready to test App, click here!](https://paulisdataviz.shinyapps.io/tableau_workbook_analyzer/)
+
+::: {.callout-caution appearance="simple"}
+**I would recommend to only use the App hosted online at Shinyapps.io for your personal projects only**, and avoid uploading any .twb file that may contain any confidential / work related tableau workbook information.
+
+**If you are interested in running this app locally in your computer /server, please reach out to me,** and I can give you access to the source code (Pre-requisite would be to have R and RStudio installed).
+:::
+
+### 
