@@ -19,7 +19,7 @@ about:
       href: https://public.tableau.com/app/profile/paula.munoz
 ---
 
-## **Hi, I'm Paula**
+## **Hello, I'm Paula**
 
 ### **Data Analytics and Visualization Consultant at Cleartelligence**
 
