@@ -2,7 +2,7 @@
 title: "Paula Muñoz"
 image: images/paula_M.jpeg
 about: 
-  template: trestles
+  template: jolla
   image-shape: rounded
   image-width: 15em
   links:
