@@ -159,7 +159,6 @@ ul.task-list{list-style: none;}
 <p>If you are a Tableau user or developer you may have found yourself in a situation where you need or would like to extract <strong>all</strong> <strong>formulas at once</strong> from all calculated fields to later find out there is no simple way to achieve this task. 😟</p>
 <p>I have been in this situation several times, and after giving it some thought, I decided to build my own App and leverage the capabilities of <strong>Flexdashboard + Shiny</strong> in <strong>R.</strong></p>
 <p>This is the first app I have ever built, and I know it is not perfect, but I learned a lot and had so much fun along the way, but most importantly I know it would be very useful and hope you would think the same.</p>
-<p>I would like to specially thank <strong>Matt Dancho</strong> who I consider my mentor and from whom I learned what I know about R, all his <a href="https://www.business-science.io/">R Business Science courses</a> are excellent and his support is unconditional. If you are looking to learn R and get into Data Science, I fully recommend taking his R-Track courses.</p>
 <p>Without further ado let me introduce the:</p>
 <section id="tableau-workbook-analyzer-app" class="level2">
 <h2 class="anchored" data-anchor-id="tableau-workbook-analyzer-app">Tableau Workbook Analyzer App</h2>
@@ -171,7 +170,7 @@ ul.task-list{list-style: none;}
 <li><p>Upload a .twb file</p></li>
 <li><p>Wait for results to display (Some files may take longer to return results depending on how big the file is and how many attributes are getting analyzed).</p></li>
 </ol>
-<p>A .twb file contains the Tableau workbook metadata in the form of structured <strong>XML</strong> tree, and all that was needed was to write some code to extract the relevant elements from the XML tree.</p>
+<p>A .twb file contains the Tableau workbook metadata in the form of structured <strong>XML</strong> tree, to develop this app I had to write some code to extract the relevant elements from the XML tree.</p>
 <p>As mentioned before, the .twb only contains <strong>metadata</strong> information about the tableau workbook and it does NOT contain any actual data that was used in the workbook itself.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -179,38 +178,39 @@ ul.task-list{list-style: none;}
 <p></p><figcaption class="figure-caption"><em>Example of metadata inculded in .twb / XML file</em></figcaption><p></p>
 </figure>
 </div>
-<p>If you are wondering how I parsed and extracted the data, below is the sample code I used to extract Data Sources information from .twb file using the library xml2, the main steps in this process are:</p>
+<p>If you are wondering how I parsed and extracted the data, it was all done using the R library: <strong>xml2</strong></p>
+<p>The main steps in the process were:</p>
 <ol type="1">
-<li><p>Identify the parent node: <strong>“//datasource”</strong></p></li>
-<li><p>Identify the attributes to extract:</p>
-<ol type="1">
-<li><p>Extract data source caption: <strong>“caption”</strong></p></li>
-<li><p>Extract data source name: <strong>“name”</strong></p></li>
-</ol></li>
-<li><p>Save results into a data frame</p></li>
+<li><p>Identify the parent nodes</p></li>
+<li><p>Identify the attributes to extract</p></li>
+<li><p>Save the results into data frames</p></li>
 <li><p>Do some data wrangling / cleaning steps (impute NAs and keep unique values) to be able to make sense of data.</p></li>
 </ol>
-<p><img src="images/paste-9330A47F.png" class="img-fluid"></p>
-<p><img src="images/paste-86166C88.png" class="img-fluid"></p>
 <hr>
 </section>
 <section id="what-analysis-information-is-being-returned-by-the-app" class="level3">
 <h3 class="anchored" data-anchor-id="what-analysis-information-is-being-returned-by-the-app">What Analysis / information is being returned by the App?</h3>
-<p>Initially I was mainly interested in retrieving calculated field formulas, but during the development process I got curious what other pieces of information could be retrieved that would help answer questions such as what fields are used or not used?, are there data sources added to the workbook that may not be used? and more.</p>
+<p>Initially I was mainly interested in retrieving calculated field formulas, but during the development process I got curious what other pieces of information could be retrieved that would help answer questions such as what fields are used or not used?, what are the Calculate Field dependecies and more.</p>
 <p>Also during the final stages of the development process, I reached out to some close friends and members of the Tableau Community asking for feedback and they came back with some awesome ideas such as retrieving Color Palette information. <strong>Thank you datafam friends and <a href="https://twitter.com/hashtag/VizOfficeHours?src=hashtag_click">#VizOfficeHours</a>!</strong></p>
-<p>I broke down the App into three main tabs / sections:</p>
+<p>The app is organized into three primary tabs/sections:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="nav_bar.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
-<p>I used the same legend throughout the App to represent objects that are used vs not used in dashboards.</p>
+<p>I used the same legend throughout the App to represent objects that are <strong>used vs not used</strong> in dashboards.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Legend.png" class="img-fluid figure-img" width="253"></p>
 </figure>
 </div>
-<p>Below is at a high level the information found. <strong>Click on each tab to learn more:</strong></p>
+<p>Similarly, I used below colors to distinguish between Raw Variables, Calculated Fields and Parameters:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="raw_calc_param.png" width="253" height="131" class="figure-img"></p>
+</figure>
+</div>
+<p>Below is at a high level the information found under each section. <strong>Click on each tab to learn more:</strong></p>
 <div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true"><strong>Workbook Summary</strong></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><strong>Column &amp; Calculated Fields Details</strong></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false"><strong>Formatting</strong></a></li></ul>
 <div class="tab-content">
@@ -219,11 +219,10 @@ ul.task-list{list-style: none;}
 <ul>
 <li><p><strong>Tableau Workbook Name</strong></p></li>
 <li><p><strong>Total number of fields</strong> used vs not used</p></li>
-<li><p><strong>Data Sources</strong> used vs not used</p></li>
-<li><p>Data Source <strong>Tables</strong> used vs not used</p></li>
-<li><p><strong>Worksheets</strong> used vs not used</p></li>
-<li><p><strong>Dashboards</strong></p>
-<p><img src="workbook_summary_1.png" class="img-fluid" width="1300"></p></li>
+<li><p><strong>Data Sources, Worksheets and dashboards:</strong> Get a bird’s eye view of the name of the data sources, worksheets and dashboards powering your visuals.</p></li>
+<li><p><strong>Field Insights:</strong> Dive into fields used, unused, their frequencies, and dependencies. Understand the role of dimensions, measures, raw variables, calculated fields, and parameters.</p></li>
+<li><p><strong>Unused Fields:</strong> Because sometimes, we all have leftovers.</p>
+<p><img src="tab1_top.png" class="img-fluid"></p></li>
 <li><p><strong>Collapsible tree</strong> that allows to see the flow from:</p>
 <p>Data Source -&gt; Dashboard Name -&gt; Worksheet Name -&gt; Field Type - Field Name</p></li>
 </ul>

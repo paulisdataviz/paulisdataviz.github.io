@@ -18,8 +18,6 @@ I have been in this situation several times, and after giving it some thought, I
 
 This is the first app I have ever built, and I know it is not perfect, but I learned a lot and had so much fun along the way, but most importantly I know it would be very useful and hope you would think the same.
 
-I would like to specially thank **Matt Dancho** who I consider my mentor and from whom I learned what I know about R, all his [R Business Science courses](https://www.business-science.io/) are excellent and his support is unconditional. If you are looking to learn R and get into Data Science, I fully recommend taking his R-Track courses.
-
 Without further ado let me introduce the:
 
 ## Tableau Workbook Analyzer App
@@ -34,47 +32,45 @@ Without further ado let me introduce the:
 
 2.  Wait for results to display (Some files may take longer to return results depending on how big the file is and how many attributes are getting analyzed).
 
-A .twb file contains the Tableau workbook metadata in the form of structured **XML** tree, and all that was needed was to write some code to extract the relevant elements from the XML tree.
+A .twb file contains the Tableau workbook metadata in the form of structured **XML** tree, to develop this app I had to write some code to extract the relevant elements from the XML tree.
 
 As mentioned before, the .twb only contains **metadata** information about the tableau workbook and it does NOT contain any actual data that was used in the workbook itself.
 
 ![*Example of metadata inculded in .twb / XML file*](images/paste-CB388FBD.png){fig-align="center" width="1300"}
 
-If you are wondering how I parsed and extracted the data, below is the sample code I used to extract Data Sources information from .twb file using the library xml2, the main steps in this process are:
+If you are wondering how I parsed and extracted the data, it was all done using the R library: **xml2**
 
-1.  Identify the parent node: **"//datasource"**
+The main steps in the process were:
 
-2.  Identify the attributes to extract:
+1.  Identify the parent nodes
 
-    1.  Extract data source caption: **"caption"**
+2.  Identify the attributes to extract
 
-    2.  Extract data source name: **"name"**
-
-3.  Save results into a data frame
+3.  Save the results into data frames
 
 4.  Do some data wrangling / cleaning steps (impute NAs and keep unique values) to be able to make sense of data.
-
-![](images/paste-9330A47F.png)
-
-![](images/paste-86166C88.png)
 
 ------------------------------------------------------------------------
 
 ### What Analysis / information is being returned by the App?
 
-Initially I was mainly interested in retrieving calculated field formulas, but during the development process I got curious what other pieces of information could be retrieved that would help answer questions such as what fields are used or not used?, are there data sources added to the workbook that may not be used? and more.
+Initially I was mainly interested in retrieving calculated field formulas, but during the development process I got curious what other pieces of information could be retrieved that would help answer questions such as what fields are used or not used?, what are the Calculate Field dependecies and more.
 
 Also during the final stages of the development process, I reached out to some close friends and members of the Tableau Community asking for feedback and they came back with some awesome ideas such as retrieving Color Palette information. **Thank you datafam friends and [#VizOfficeHours](https://twitter.com/hashtag/VizOfficeHours?src=hashtag_click)!**
 
-I broke down the App into three main tabs / sections:
+The app is organized into three primary tabs/sections:
 
 ![](nav_bar.png){fig-align="center"}
 
-I used the same legend throughout the App to represent objects that are used vs not used in dashboards.
+I used the same legend throughout the App to represent objects that are **used vs not used** in dashboards.
 
 ![](Legend.png){fig-align="center" width="253"}
 
-Below is at a high level the information found. **Click on each tab to learn more:**
+Similarly, I used below colors to distinguish between Raw Variables, Calculated Fields and Parameters:
+
+![](raw_calc_param.png){fig-align="center" width="253" height="131"}
+
+Below is at a high level the information found under each section. **Click on each tab to learn more:**
 
 ::: panel-tabset
 #### **Workbook Summary**
@@ -85,15 +81,13 @@ This section contains a summary of the workbook including:
 
 -   **Total number of fields** used vs not used
 
--   **Data Sources** used vs not used
+-   **Data Sources, Worksheets and dashboards:** Get a bird's eye view of the name of the data sources, worksheets and dashboards powering your visuals.
 
--   Data Source **Tables** used vs not used
+-   **Field Insights:** Dive into fields used, unused, their frequencies, and dependencies. Understand the role of dimensions, measures, raw variables, calculated fields, and parameters.
 
--   **Worksheets** used vs not used
+-   **Unused Fields:** Because sometimes, we all have leftovers.
 
--   **Dashboards**
-
-    ![](workbook_summary_1.png){width="1300"}
+    ![](tab1_top.png)
 
 -   **Collapsible tree** that allows to see the flow from:
 

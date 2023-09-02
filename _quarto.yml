@@ -14,7 +14,6 @@ website:
       - posts.qmd
       - about.qmd
   page-footer: 
-    background: light
     left: 
       - "Copyright 2023, Paula Munoz"
       
