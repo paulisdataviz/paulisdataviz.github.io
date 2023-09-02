@@ -188,22 +188,12 @@ Having that said, if you are concerned about security, **avoid uploading any .tw
 **Disclaimer:** While I've taken every effort to ensure the reliability of this app, I cannot guarantee its performance or outcomes under all circumstances. Please use the app with discretion and understand that I cannot be held liable for any issues or damages that may arise from its use. Kindly use it at your own risk. Thank you for your understanding.
 :::
 
-For more information about Security and Storage in Shinyapps.io, I have extracted below from Posit and shinnyapps.io websites:
-
-*"Posit is a data processor with respect to data processed by Posit Cloud Services, including [posit.cloud](https://posit.cloud/) and [shinyapps.io](https://shinyapps.io/). Posit maintains appropriate technical and organizational security measures designed to protect the security, confidentiality, integrity and availability of data processed by Posit Cloud Services. **All communication between customers and Posit Cloud Services is encrypted with HTTPS.** Within Posit Cloud Services, data at-rest is also encrypted."* [read more here](https://posit.co/about/posit-and-the-gdpr-what-you-need-to-know/)
-
-*"Each application deployed to shinyapps.io creates storage in its own private file system when the application starts to run. The application **only** has access to the data that was uploaded with the application at the time of deployment."*
-
-*"The storage will be persistent while the application is in the Running state. After the idle timeout is reached, the application will be put into a Sleeping state, and any changes to the file system will be lost."*
-
-*"If your shiny application collects information that you would like to have persisted, you will need to write the data to a persistent data store (e.g., databases, Dropbox, Google Sheets, S3 etc.)"* [shinyapps.io documentation](https://docs.rstudio.com/shinyapps.io/Storage.html#understanding-the-storage-lifecycle)
-
 ------------------------------------------------------------------------
 
 ### [Ready to test App, click here!](https://paulisdataviz.shinyapps.io/tableau_workbook_analyzer/)
 
-::: {.callout-caution appearance="simple"}
-**Disclaimer:** While I've taken every effort to ensure the reliability of this app, I cannot guarantee its performance or outcomes under all circumstances. Please use the app with discretion and understand that I cannot be held liable for any issues or damages that may arise from its use. Kindly use it at your own risk. Thank you for your understanding
-:::
+Please reach out if you have any questions or comments!
 
-### 
+Thanks;
+
+Paula M
