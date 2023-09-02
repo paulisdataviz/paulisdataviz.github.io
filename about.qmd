@@ -12,11 +12,13 @@ I have over 5 years of experience applying Data and Business Analytics technique
 
 -   Translate complex business issues into structured analysis.
 
--   Develop rich interactive visualizations, that are intuitive, easy to use and understand using Tableau.
+-   Develop rich interactive visualizations, that are intuitive, easy to use and understand using Tableau, Looker Studio and Power BI.
 
 -   Prepare, blend and cleanse data.
 
 -   Create robust documentation of solutions and operating procedures to transition support.
+
+-   Proficient in training business professionals on Tableau and Power Query usage.
 
 #### **Product Analyst \| Data Scientist \| Manager Data Solutions,** 2017-2022 
 
