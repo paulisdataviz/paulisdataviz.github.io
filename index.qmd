@@ -25,11 +25,11 @@ about:
 
 ### **MBA Candidate at Questrom School of Business - Boston University**
 
-#### **I design and build awesome data analytics and visualization products.**
+#### **I craft sophisticated and impactful data driven solutions.**
 
 My favorite tools are Tableau and R.
 
-I have experience manipulating data and working with other tools including Snowflake, Alteryx, Tableau Prep Builder among others.
+I have experience manipulating data and working with other tools including Looker Studio, Power BI, Power Query, Snowflake, Alteryx, Tableau Prep Builder among others.
 
 I'm passionate about:
 
