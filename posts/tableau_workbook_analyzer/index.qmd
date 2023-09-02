@@ -54,9 +54,9 @@ The main steps in the process were:
 
 ### What Analysis / information is being returned by the App?
 
-Initially I was mainly interested in retrieving calculated field formulas, but during the development process I got curious what other pieces of information could be retrieved that would help answer questions such as what fields are used or not used?, what are the Calculate Field dependecies and more.
+Initially I was mainly interested in retrieving calculated field formulas, but during the development process I got curious what other pieces of information could be retrieved that would help answer questions such as what fields are used or not used?, what are the Calculated Field dependencies and more.
 
-Also during the final stages of the development process, I reached out to some close friends and members of the Tableau Community asking for feedback and they came back with some awesome ideas such as retrieving Color Palette information. **Thank you datafam friends and [#VizOfficeHours](https://twitter.com/hashtag/VizOfficeHours?src=hashtag_click)!**
+Also during the initial stages of the development process, I reached out to some close friends and members of the Tableau Community asking for feedback and they came back with some awesome ideas such as retrieving Color Palette information. **Thank you datafam friends and [#VizOfficeHours](https://twitter.com/hashtag/VizOfficeHours?src=hashtag_click)!**
 
 The app is organized into three primary tabs/sections:
 
@@ -164,14 +164,6 @@ Shinyapps.io is a platform for hosting Shiny web applications. To learn more abo
 
 App can be tested [here!](https://paulisdataviz.shinyapps.io/tableau_workbook_analyzer/)
 
-::: {.callout-caution appearance="simple"}
-**I would recommend to only use the App hosted online at Shinyapps.io for your personal projects only**, and avoid uploading any .twb file that may contain any confidential / work related tableau workbook information.
-
-**If you are interested in running this app locally in your computer /server, please reach out to me,** and I can give you access to the source code (Pre-requisite would be to have R and RStudio installed).
-:::
-
-The app is hosted under Shinyapps.io **Free** tier service, and availability of the App is dependent on how many active hours the app has been running in a given month.
-
 ------------------------------------------------------------------------
 
 ### About Security and Storage
@@ -185,7 +177,11 @@ The App is not writing the data to a persistent data store, which means the data
 ::: {.callout-caution appearance="simple"}
 Having that said, if you are concerned about security, **avoid uploading any .twb file that may contain any confidential / sensitive information.**
 
-**Disclaimer:** While I've taken every effort to ensure the reliability of this app, I cannot guarantee its performance or outcomes under all circumstances. Please use the app with discretion and understand that I cannot be held liable for any issues or damages that may arise from its use. Kindly use it at your own risk. Thank you for your understanding.
+**Disclaimer:**
+
+The app is hosted under Shinyapps.io **Free** tier service, and availability of the App is dependent on how many active hours the app has been running in a given month.
+
+While I've taken every effort to ensure the reliability of this app, I cannot guarantee its performance or outcomes under all circumstances. Please use the app with discretion and understand that I cannot be held liable for any issues or damages that may arise from its use. Kindly use it at your own risk. Thank you for your understanding.
 :::
 
 ------------------------------------------------------------------------
