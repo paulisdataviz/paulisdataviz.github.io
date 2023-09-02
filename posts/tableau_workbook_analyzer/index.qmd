@@ -22,7 +22,7 @@ Without further ado let me introduce the:
 
 ## Tableau Workbook Analyzer App
 
-![](tableau_workbook_analyzer.gif)
+![](tableau_workbook_analyzer.gif){fig-align="center" width="757"}
 
 ------------------------------------------------------------------------
 
