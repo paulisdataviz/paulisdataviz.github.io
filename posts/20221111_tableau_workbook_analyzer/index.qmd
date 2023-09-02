@@ -145,7 +145,7 @@ Last but not least, the formatting tab displays some formatting attributes found
 
 -   **Mark Colors**
 
--   **Consolidated list of to 20 hex colors** used - Similar to other tables in the App, this table can be edited, searched on and copied/ exported, but most importantly you could also download the list of hex codes in the format required to update the preferences.tps file and create your custom palette.
+-   **Consolidated list of to 20 hex colors** used - Similar to other tables in the App, this table can be edited, searched on and copied/ exported, but most importantly you could also download the list of hex codes in the format required to update the preferences.tps file and create your own custom palette.
 
     ![](formatting_final.png){fig-align="center"}
 
@@ -176,16 +176,16 @@ The app is hosted under Shinyapps.io **Free** tier service, and availability of 
 
 ### About Security and Storage
 
-A .twb file only contains metadata about the Tableau workbook and it does not contain the actual data used in the workbook itself.
+A .twb file only contains metadata about the Tableau workbook and it **does not** contain the actual data used in the workbook itself.
 
-The .twb file uploaded to the App is encrypted with HTTPS.
+The .twb file uploaded to the App is encrypted using SSL/TLS
 
-The App is not writing the data to a persistent data store, which means the data uploaded to the app is lost once the application goes into iddle state, and to facilitate this I have added buttons across the different tabs to clear the session and close the window.
+The App is not writing the data to a persistent data store, which means the data uploaded to the app is lost once the application goes into iddle state, or the session has ended. To facilitate this I have added buttons across the different tabs to clear the session and close the window.
 
 ::: {.callout-caution appearance="simple"}
-Having that said, **I would recommend to only use the App hosted online at Shinyapps.io for your personal projects only**, and avoid uploading any .twb file that may contain any confidential / work related tableau workbook information.
+Having that said, if you are concerned about security, **avoid uploading any .twb file that may contain any confidential / sensitive information.**
 
-**If you are interested in running this app locally in your computer /server, please reach out to me,** and I can give you access to the source code (Pre-requisite would be to have R and RStudio installed).
+**Disclaimer:** While I've taken every effort to ensure the reliability of this app, I cannot guarantee its performance or outcomes under all circumstances. Please use the app with discretion and understand that I cannot be held liable for any issues or damages that may arise from its use. Kindly use it at your own risk. Thank you for your understanding.
 :::
 
 For more information about Security and Storage in Shinyapps.io, I have extracted below from Posit and shinnyapps.io websites:
@@ -203,9 +203,7 @@ For more information about Security and Storage in Shinyapps.io, I have extracte
 ### [Ready to test App, click here!](https://paulisdataviz.shinyapps.io/tableau_workbook_analyzer/)
 
 ::: {.callout-caution appearance="simple"}
-**I would recommend to only use the App hosted online at Shinyapps.io for your personal projects only**, and avoid uploading any .twb file that may contain any confidential / work related tableau workbook information.
-
-**If you are interested in running this app locally in your computer /server, please reach out to me,** and I can give you access to the source code (Pre-requisite would be to have R and RStudio installed).
+**Disclaimer:** While I've taken every effort to ensure the reliability of this app, I cannot guarantee its performance or outcomes under all circumstances. Please use the app with discretion and understand that I cannot be held liable for any issues or damages that may arise from its use. Kindly use it at your own risk. Thank you for your understanding
 :::
 
 ### 
