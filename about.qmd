@@ -20,6 +20,16 @@ I have over 5 years of experience applying Data and Business Analytics technique
 
 -   Proficient in training business professionals on Tableau and Power Query usage.
 
+#### **Adjunct Faculty Member,** Spring 2023 
+
+#### Endicott College
+
+-   Taught Data Mining & Business Intelligence (ITS-570) course to MBA students.
+
+-   Developed and delivered engaging lectures and class discussions.
+
+-   Trained students on how to use Advanced Excel for data analysis, Tableau Prep Builder and SQL for data Wrangling and Tableau for Data Visualization and Presentations.
+
 #### **Product Analyst \| Data Scientist \| Manager Data Solutions,** 2017-2022 
 
 #### NetNumber - Global Data Services
@@ -35,6 +45,10 @@ I have over 5 years of experience applying Data and Business Analytics technique
 -   Designed Profit margin analysis Dashboards to identify savings opportunities, high risk customers, and assess new pricing
 
 ## **Education**
+
+#### **MBA,** 2026
+
+*Questrom School of Business - Boston University*
 
 #### **MSc in Telecommunications Systems Management,** 2016
 
