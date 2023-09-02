@@ -55,6 +55,6 @@ I'm a Techie and lifelong learner. Currently pursuing an MBA at Boston Universit
 
 I hold a degree in Electronics Engineering, a B.S. in Information Technology, and a M.S. in Telecommunications Systems Management.
 
-After dedicating many years to the Telecom Industry, spanning roles from Technical Support to Network Engineering and Operations, I unearthed a fervent interest in Data Analytics. My passion now gravitates towards Data Science and Data Visualization.
+After dedicating many years to the Telecom Industry, spanning roles from Technical Support to Network Engineering and Operations, I unearthed a fervent interest in Data Analytics. My passion now gravitates towards Data Governance, Data Science and Data Visualization.
 
 ------------------------------------------------------------------------
