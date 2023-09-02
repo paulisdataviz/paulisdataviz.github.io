@@ -222,18 +222,16 @@ ul.task-list{list-style: none;}
 <li><p><strong>Data Sources, Worksheets and dashboards:</strong> Get a bird’s eye view of the name of the data sources, worksheets and dashboards powering your visuals.</p></li>
 <li><p><strong>Field Insights:</strong> Dive into fields used, unused, their frequencies, and dependencies. Understand the role of dimensions, measures, raw variables, calculated fields, and parameters.</p></li>
 <li><p><strong>Unused Fields:</strong> Because sometimes, we all have leftovers.</p>
-<p><img src="tab1_top.png" class="img-fluid"></p></li>
-<li><p><strong>Collapsible tree</strong> that allows to see the flow from:</p>
-<p>Data Source -&gt; Dashboard Name -&gt; Worksheet Name -&gt; Field Type - Field Name</p></li>
+<p><img src="tab1_top.png" class="img-fluid"></p>
+<h4 id="workbook-summary---bottom-section" class="anchored"><strong>Workbook Summary - Bottom Section</strong></h4></li>
+<li><p><strong>Used Fields list:</strong> List detailing field names, frequencies, and field type.</p></li>
+<li><p><strong>Calculated Field Dependencies list:</strong> Discover which fields contribute to each Calculated Field.</p></li>
+<li><p><strong>Unused Fields list:</strong> List of unused fields with their field type.</p></li>
 </ul>
-<p><img src="collapsible_tree.png" class="img-fluid" width="1300"></p>
-<ul>
-<li><p>Table with <strong>Filters found in worksheets.</strong> Table can be exported and it is editable (by double clicking in values).</p>
-<p><img src="filters.png" class="img-fluid" width="1300"></p></li>
-</ul>
+<p><img src="tab1_bottom.png" class="img-fluid"></p>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>I would think this section contains the most interesting information… It has all information about the columns / fields.</p>
+<p>I would think this section contains the most interesting information… It has all the deatils about the columns / fields.</p>
 <p>First of all, the side panel has various filters:</p>
 <table class="table">
 <colgroup>
@@ -252,28 +250,17 @@ ul.task-list{list-style: none;}
 </tr>
 </tbody>
 </table>
-<p>As far as information being displayed under this tab, the top section displays:</p>
-<ul>
-<li><p>Distribution of <strong>fields by role</strong> - Dimension / Measures</p></li>
-<li><p>Distribution of <strong>fields by data type</strong> - String / Integer / date…</p></li>
-<li><p>Distribution of <strong>fields by type</strong> - Raw Variables / Calculated Fields / Parameters</p>
-<p><img src="bar_charts.png" class="img-fluid" width="1300"></p></li>
-</ul>
-<p>The bottom section contains:</p>
+<p>As far as the Details table:</p>
 <ul>
 <li><p><strong>Fields Detail</strong> table - Contains all relevant information about columns/ fields.</p>
 <ul>
 <li><p>Select information to be added/ remove to table using filter menu on sidebar</p></li>
 <li><p>Table is editable (double click on a value and edit)</p></li>
 <li><p>Search values across tables (This would work like a filter)</p></li>
-<li><p>Copy or export table details to CSV or EXCEL</p></li>
+<li><p>Copy table to clipboard or export table to CSV or EXCEL</p></li>
 </ul></li>
 </ul>
-<p><img src="images/paste-ECD7A4EC.png" class="img-fluid"></p>
-<ul>
-<li><strong>What fields are used and how many times</strong> - Bar chart:</li>
-</ul>
-<p><img src="images/paste-F87C3B7D.png" class="img-fluid"></p>
+<p><img src="table_detailed_view.png" class="img-fluid"></p>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <p>Last but not least, the formatting tab displays some formatting attributes found in the workbook and they are sorted by most to least used.</p>
@@ -282,9 +269,19 @@ ul.task-list{list-style: none;}
 <li><p><strong>Font Sizes</strong></p></li>
 <li><p><strong>Font Colors</strong></p></li>
 <li><p><strong>Mark Colors</strong></p></li>
-<li><p><strong>Consolidated list of hex colors</strong> used - Similar to other tables in the App, this table can be edited, searched on and copied/ exported.</p></li>
+<li><p><strong>Consolidated list of to 20 hex colors</strong> used - Similar to other tables in the App, this table can be edited, searched on and copied/ exported, but most importantly you could also download the list of hex codes in the format required to update the preferences.tps file and create your custom palette.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="formatting_final.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<p>Exporting Hex codes in the format needed under the preferences.tps file:</p></li>
 </ul>
-<p><img src="images/paste-20CA51E9.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pref_tps.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>

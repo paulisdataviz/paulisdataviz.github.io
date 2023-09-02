@@ -89,19 +89,19 @@ This section contains a summary of the workbook including:
 
     ![](tab1_top.png)
 
--   **Collapsible tree** that allows to see the flow from:
+    #### **Workbook Summary - Bottom Section**
 
-    Data Source -\> Dashboard Name -\> Worksheet Name -\> Field Type - Field Name
+-   **Used Fields list:** List detailing field names, frequencies, and field type.
 
-![](collapsible_tree.png){width="1300"}
+-   **Calculated Field Dependencies list:** Discover which fields contribute to each Calculated Field.
 
--   Table with **Filters found in worksheets.** Table can be exported and it is editable (by double clicking in values).
+-   **Unused Fields list:** List of unused fields with their field type.
 
-    ![](filters.png){width="1300"}
+![](tab1_bottom.png)
 
 #### **Column & Calculated Fields Details**
 
-I would think this section contains the most interesting information... It has all information about the columns / fields.
+I would think this section contains the most interesting information... It has all the deatils about the columns / fields.
 
 First of all, the side panel has various filters:
 
@@ -115,17 +115,7 @@ First of all, the side panel has various filters:
 | -   **Custom information to be added/ removed** **to/ from field Details table** - This filter only applies to Fields Details table  |                                    |
 +--------------------------------------------------------------------------------------------------------------------------------------+------------------------------------+
 
-As far as information being displayed under this tab, the top section displays:
-
--   Distribution of **fields by role** - Dimension / Measures
-
--   Distribution of **fields by data type** - String / Integer / date...
-
--   Distribution of **fields by type** - Raw Variables / Calculated Fields / Parameters
-
-    ![](bar_charts.png){width="1300"}
-
-The bottom section contains:
+As far as the Details table:
 
 -   **Fields Detail** table - Contains all relevant information about columns/ fields.
 
@@ -135,13 +125,9 @@ The bottom section contains:
 
     -   Search values across tables (This would work like a filter)
 
-    -   Copy or export table details to CSV or EXCEL
+    -   Copy table to clipboard or export table to CSV or EXCEL
 
-![](images/paste-ECD7A4EC.png)
-
--   **What fields are used and how many times** - Bar chart:
-
-![](images/paste-F87C3B7D.png)
+![](table_detailed_view.png)
 
 #### **Formatting**
 
@@ -155,9 +141,13 @@ Last but not least, the formatting tab displays some formatting attributes found
 
 -   **Mark Colors**
 
--   **Consolidated list of hex colors** used - Similar to other tables in the App, this table can be edited, searched on and copied/ exported.
+-   **Consolidated list of to 20 hex colors** used - Similar to other tables in the App, this table can be edited, searched on and copied/ exported, but most importantly you could also download the list of hex codes in the format required to update the preferences.tps file and create your custom palette.
 
-![](images/paste-20CA51E9.png)
+    ![](formatting_final.png){fig-align="center"}
+
+    Exporting Hex codes in the format needed under the preferences.tps file:
+
+![](pref_tps.png){fig-align="center"}
 :::
 
 ------------------------------------------------------------------------
