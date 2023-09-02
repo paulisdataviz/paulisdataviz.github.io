@@ -62,11 +62,11 @@ The app is organized into three primary tabs/sections:
 
 ![](nav_bar.png){fig-align="center"}
 
-I used the same legend throughout the App to represent objects that are **used vs not used** in dashboards.
+I used the same legend throughout the App to represent objects that are **used** vs **not used** in dashboards.
 
 ![](Legend.png){fig-align="center" width="253"}
 
-Similarly, I used below colors to distinguish between Raw Variables, Calculated Fields and Parameters:
+Similarly, I used below colors to distinguish between **Raw Variables**, **Calculated Fields** and **Parameters**:
 
 ![](raw_calc_param.png){fig-align="center" width="253" height="131"}
 
@@ -127,7 +127,11 @@ As far as the Details table:
 
     -   Copy table to clipboard or export table to CSV or EXCEL
 
-![](table_detailed_view.png)
+![](table_detailed_view.png){fig-align="center"}
+
+Sample of exported table:
+
+![](exported_table.png){fig-align="center"}
 
 #### **Formatting**
 
@@ -145,7 +149,7 @@ Last but not least, the formatting tab displays some formatting attributes found
 
     ![](formatting_final.png){fig-align="center"}
 
-    Exporting Hex codes in the format needed under the preferences.tps file:
+    Exporting Hex codes in the format needed in the preferences.tps file:
 
 ![](pref_tps.png){fig-align="center"}
 :::
