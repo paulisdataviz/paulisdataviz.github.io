@@ -21,9 +21,7 @@ about:
 
 ## **Hello, I'm Paula**
 
-### **Data Analytics and Visualization Consultant**
-
-### **MBA Candidate at Questrom School of Business - Boston University**
+### **Data Analytics and Visualization Consultant \| Tableau Certified Associate Consultant \| MBA Candidate at Questrom School of Business - Boston University**
 
 #### **I craft sophisticated and impactful data driven solutions.**
 
@@ -49,10 +47,8 @@ I'm passionate about:
 
 ### **More about me**
 
-I'm a Techie and lifelong learner. When I'm not working or enjoying time with my family. I like to spend time improving my skills and learning new tools or techniques.
+I'm a Techie and lifelong learner. Currently pursuing an MBA at Boston University's Questrom School of Business. Beyond my professional commitments and quality time with my family, I am deeply engaged in refining my skills and exploring innovative tools and techniques.
 
-I graduated as an Electronics' Engineer. I have a second B.S in Information Technology and hold a M.S. in Telecommunications Systems Management.
-
-After spending several years working in the Telecom Industry within the areas of Technical Support, Network Engineering and Operations I discovered Data Analytics and became very passionate about Data Science and Data Visualization.
+I hold a degree in Electronics Engineering, a B.S. in Information Technology, and an M.S. in Telecommunications Systems Management. After dedicating many years to the Telecom Industry, spanning roles from Technical Support to Network Engineering and Operations, I unearthed a fervent interest in Data Analytics. My passion now gravitates towards Data Science and Data Visualization.
 
 ------------------------------------------------------------------------
