@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Paula Muñoz">
+<meta name="dcterms.date" content="2023-09-02">
+<meta name="description" content="Building an app to dissect .twb files: extracting formulas from calculated fields, downloading them, and capturing formatting details like fonts and hex color codes.">
+
+<title>Paula Muñoz - Tableau Workbook Analyzer: A Flexdashboard &amp; Shiny Application</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/logo_paula.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <img src="../../images/logo_paula.png" alt="">
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html">Home</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts.html">Posts</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">My Experience &amp; Education</a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Tableau Workbook Analyzer: A Flexdashboard &amp; Shiny Application</h1>
+                  <div>
+        <div class="description">
+          Building an app to dissect .twb files: extracting formulas from calculated fields, downloading them, and capturing formatting details like fonts and hex color codes.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Tableau</div>
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">Flexdashboard</div>
+                <div class="quarto-category">Shiny</div>
+                <div class="quarto-category">XML</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Paula Muñoz </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 2, 2023</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#tableau-workbook-analyzer-app" id="toc-tableau-workbook-analyzer-app" class="nav-link active" data-scroll-target="#tableau-workbook-analyzer-app">Tableau Workbook Analyzer App</a>
+  <ul class="collapse">
+  <li><a href="#how-does-the-app-work" id="toc-how-does-the-app-work" class="nav-link" data-scroll-target="#how-does-the-app-work">How does the App work?</a></li>
+  <li><a href="#what-analysis-information-is-being-returned-by-the-app" id="toc-what-analysis-information-is-being-returned-by-the-app" class="nav-link" data-scroll-target="#what-analysis-information-is-being-returned-by-the-app">What Analysis / information is being returned by the App?</a></li>
+  <li><a href="#where-is-the-app-hosted" id="toc-where-is-the-app-hosted" class="nav-link" data-scroll-target="#where-is-the-app-hosted">Where is the App hosted?</a></li>
+  <li><a href="#about-security-and-storage" id="toc-about-security-and-storage" class="nav-link" data-scroll-target="#about-security-and-storage">About Security and Storage</a></li>
+  <li><a href="#ready-to-test-app-click-here" id="toc-ready-to-test-app-click-here" class="nav-link" data-scroll-target="#ready-to-test-app-click-here"><span>Ready to test App, click here!</span></a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>If you are a Tableau user or developer you may have found yourself in a situation where you need or would like to extract <strong>all</strong> <strong>formulas at once</strong> from all calculated fields to later find out there is no simple way to achieve this task. 😟</p>
+<p>I have been in this situation several times, and after giving it some thought, I decided to build my own App and leverage the capabilities of <strong>Flexdashboard + Shiny</strong> in <strong>R.</strong></p>
+<p>This is the first app I have ever built, and I know it is not perfect, but I learned a lot and had so much fun along the way, but most importantly I know it would be very useful and hope you would think the same.</p>
+<p>Without further ado let me introduce the:</p>
+<section id="tableau-workbook-analyzer-app" class="level2">
+<h2 class="anchored" data-anchor-id="tableau-workbook-analyzer-app">Tableau Workbook Analyzer App</h2>
+<p><img src="tableau_workbook_analyzer.gif" class="img-fluid"></p>
+<hr>
+<section id="how-does-the-app-work" class="level3">
+<h3 class="anchored" data-anchor-id="how-does-the-app-work">How does the App work?</h3>
+<ol type="1">
+<li><p>Upload a .twb file</p></li>
+<li><p>Wait for results to display (Some files may take longer to return results depending on how big the file is and how many attributes are getting analyzed).</p></li>
+</ol>
+<p>A .twb file contains the Tableau workbook metadata in the form of structured <strong>XML</strong> tree, to develop this app I had to write some code to extract the relevant elements from the XML tree.</p>
+<p>As mentioned before, the .twb only contains <strong>metadata</strong> information about the tableau workbook and it does NOT contain any actual data that was used in the workbook itself.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/paste-CB388FBD.png" class="img-fluid figure-img" width="1300"></p>
+<p></p><figcaption class="figure-caption"><em>Example of metadata inculded in .twb / XML file</em></figcaption><p></p>
+</figure>
+</div>
+<p>If you are wondering how I parsed and extracted the data, it was all done using the R library: <strong>xml2</strong></p>
+<p>The main steps in the process were:</p>
+<ol type="1">
+<li><p>Identify the parent nodes</p></li>
+<li><p>Identify the attributes to extract</p></li>
+<li><p>Save the results into data frames</p></li>
+<li><p>Do some data wrangling / cleaning steps (impute NAs and keep unique values) to be able to make sense of data.</p></li>
+</ol>
+<hr>
+</section>
+<section id="what-analysis-information-is-being-returned-by-the-app" class="level3">
+<h3 class="anchored" data-anchor-id="what-analysis-information-is-being-returned-by-the-app">What Analysis / information is being returned by the App?</h3>
+<p>Initially I was mainly interested in retrieving calculated field formulas, but during the development process I got curious what other pieces of information could be retrieved that would help answer questions such as what fields are used or not used?, what are the Calculate Field dependecies and more.</p>
+<p>Also during the final stages of the development process, I reached out to some close friends and members of the Tableau Community asking for feedback and they came back with some awesome ideas such as retrieving Color Palette information. <strong>Thank you datafam friends and <a href="https://twitter.com/hashtag/VizOfficeHours?src=hashtag_click">#VizOfficeHours</a>!</strong></p>
+<p>The app is organized into three primary tabs/sections:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="nav_bar.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<p>I used the same legend throughout the App to represent objects that are <strong>used</strong> vs <strong>not used</strong> in dashboards.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Legend.png" class="img-fluid figure-img" width="253"></p>
+</figure>
+</div>
+<p>Similarly, I used below colors to distinguish between <strong>Raw Variables</strong>, <strong>Calculated Fields</strong> and <strong>Parameters</strong>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="raw_calc_param.png" width="253" height="131" class="figure-img"></p>
+</figure>
+</div>
+<p>Below is at a high level the information found under each section. <strong>Click on each tab to learn more:</strong></p>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true"><strong>Workbook Summary</strong></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><strong>Column &amp; Calculated Fields Details</strong></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false"><strong>Formatting</strong></a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>This section contains a summary of the workbook including:</p>
+<ul>
+<li><p><strong>Tableau Workbook Name</strong></p></li>
+<li><p><strong>Total number of fields</strong> used vs not used</p></li>
+<li><p><strong>Data Sources, Worksheets and dashboards:</strong> Get a bird’s eye view of the name of the data sources, worksheets and dashboards powering your visuals.</p></li>
+<li><p><strong>Field Insights:</strong> Dive into fields used, unused, their frequencies, and dependencies. Understand the role of dimensions, measures, raw variables, calculated fields, and parameters.</p></li>
+<li><p><strong>Unused Fields:</strong> Because sometimes, we all have leftovers.</p>
+<p><img src="tab1_top.png" class="img-fluid"></p>
+<h4 id="workbook-summary---bottom-section" class="anchored"><strong>Workbook Summary - Bottom Section</strong></h4></li>
+<li><p><strong>Used Fields list:</strong> List detailing field names, frequencies, and field type.</p></li>
+<li><p><strong>Calculated Field Dependencies list:</strong> Discover which fields contribute to each Calculated Field.</p></li>
+<li><p><strong>Unused Fields list:</strong> List of unused fields with their field type.</p></li>
+</ul>
+<p><img src="tab1_bottom.png" class="img-fluid"></p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>I would think this section contains the most interesting information… It has all the deatils about the columns / fields.</p>
+<p>First of all, the side panel has various filters:</p>
+<table class="table">
+<colgroup>
+<col style="width: 78%">
+<col style="width: 21%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><ul>
+<li><p><strong>Used in dashboards?</strong> - Toggle this filter to update results based on used/ not used fields</p></li>
+<li><p><strong>Field Type</strong> - Select between ‘Calculated Field’, ‘Parameter’ and ‘Raw Variable’, default is set to display all type of fields</p></li>
+<li><p><strong>Fields Filter</strong> - Select specific fields to review</p></li>
+<li><p><strong>Custom information to be added/ removed</strong> <strong>to/ from field Details table</strong> - This filter only applies to Fields Details table</p></li>
+</ul></td>
+<td><img src="side_filters.png" class="img-fluid" width="152"></td>
+</tr>
+</tbody>
+</table>
+<p>As far as the Details table:</p>
+<ul>
+<li><p><strong>Fields Detail</strong> table - Contains all relevant information about columns/ fields.</p>
+<ul>
+<li><p>Select information to be added/ remove to table using filter menu on sidebar</p></li>
+<li><p>Table is editable (double click on a value and edit)</p></li>
+<li><p>Search values across tables (This would work like a filter)</p></li>
+<li><p>Copy table to clipboard or export table to CSV or EXCEL</p></li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="table_detailed_view.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<p>Sample of exported table:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="exported_table.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>Last but not least, the formatting tab displays some formatting attributes found in the workbook and they are sorted by most to least used.</p>
+<ul>
+<li><p><strong>Font Names</strong></p></li>
+<li><p><strong>Font Sizes</strong></p></li>
+<li><p><strong>Font Colors</strong></p></li>
+<li><p><strong>Mark Colors</strong></p></li>
+<li><p><strong>Consolidated list of to 20 hex colors</strong> used - Similar to other tables in the App, this table can be edited, searched on and copied/ exported, but most importantly you could also download the list of hex codes in the format required to update the preferences.tps file and create your own custom palette.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="formatting_final.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<p>Exporting Hex codes in the format needed in the preferences.tps file:</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pref_tps.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="where-is-the-app-hosted" class="level3">
+<h3 class="anchored" data-anchor-id="where-is-the-app-hosted">Where is the App hosted?</h3>
+<p>The App is hosted at <strong>Shinyapps.io.</strong></p>
+<p>Shinyapps.io is a platform for hosting Shiny web applications. To learn more about Shinnyapss.io <a href="https://www.shinyapps.io/">Click here!</a></p>
+<p>App can be tested <a href="https://paulisdataviz.shinyapps.io/tableau_workbook_analyzer/">here!</a></p>
+<div class="callout-caution callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>I would recommend to only use the App hosted online at Shinyapps.io for your personal projects only</strong>, and avoid uploading any .twb file that may contain any confidential / work related tableau workbook information.</p>
+<p><strong>If you are interested in running this app locally in your computer /server, please reach out to me,</strong> and I can give you access to the source code (Pre-requisite would be to have R and RStudio installed).</p>
+</div>
+</div>
+</div>
+<p>The app is hosted under Shinyapps.io <strong>Free</strong> tier service, and availability of the App is dependent on how many active hours the app has been running in a given month.</p>
+<hr>
+</section>
+<section id="about-security-and-storage" class="level3">
+<h3 class="anchored" data-anchor-id="about-security-and-storage">About Security and Storage</h3>
+<p>A .twb file only contains metadata about the Tableau workbook and it <strong>does not</strong> contain the actual data used in the workbook itself.</p>
+<p>The .twb file uploaded to the App is encrypted using SSL/TLS</p>
+<p>The App is not writing the data to a persistent data store, which means the data uploaded to the app is lost once the application goes into iddle state, or the session has ended. To facilitate this I have added buttons across the different tabs to clear the session and close the window.</p>
+<div class="callout-caution callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Having that said, if you are concerned about security, <strong>avoid uploading any .twb file that may contain any confidential / sensitive information.</strong></p>
+<p><strong>Disclaimer:</strong> While I’ve taken every effort to ensure the reliability of this app, I cannot guarantee its performance or outcomes under all circumstances. Please use the app with discretion and understand that I cannot be held liable for any issues or damages that may arise from its use. Kindly use it at your own risk. Thank you for your understanding.</p>
+</div>
+</div>
+</div>
+<p>For more information about Security and Storage in Shinyapps.io, I have extracted below from Posit and shinnyapps.io websites:</p>
+<p><em>“Posit is a data processor with respect to data processed by Posit Cloud Services, including <a href="https://posit.cloud/">posit.cloud</a> and <a href="https://shinyapps.io/">shinyapps.io</a>. Posit maintains appropriate technical and organizational security measures designed to protect the security, confidentiality, integrity and availability of data processed by Posit Cloud Services. <strong>All communication between customers and Posit Cloud Services is encrypted with HTTPS.</strong> Within Posit Cloud Services, data at-rest is also encrypted.”</em> <a href="https://posit.co/about/posit-and-the-gdpr-what-you-need-to-know/">read more here</a></p>
+<p><em>“Each application deployed to shinyapps.io creates storage in its own private file system when the application starts to run. The application <strong>only</strong> has access to the data that was uploaded with the application at the time of deployment.”</em></p>
+<p><em>“The storage will be persistent while the application is in the Running state. After the idle timeout is reached, the application will be put into a Sleeping state, and any changes to the file system will be lost.”</em></p>
+<p><em>“If your shiny application collects information that you would like to have persisted, you will need to write the data to a persistent data store (e.g., databases, Dropbox, Google Sheets, S3 etc.)”</em> <a href="https://docs.rstudio.com/shinyapps.io/Storage.html#understanding-the-storage-lifecycle">shinyapps.io documentation</a></p>
+<hr>
+</section>
+<section id="ready-to-test-app-click-here" class="level3">
+<h3 class="anchored" data-anchor-id="ready-to-test-app-click-here"><a href="https://paulisdataviz.shinyapps.io/tableau_workbook_analyzer/">Ready to test App, click here!</a></h3>
+<div class="callout-caution callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Disclaimer:</strong> While I’ve taken every effort to ensure the reliability of this app, I cannot guarantee its performance or outcomes under all circumstances. Please use the app with discretion and understand that I cannot be held liable for any issues or damages that may arise from its use. Kindly use it at your own risk. Thank you for your understanding</p>
+</div>
+</div>
+</div>
+</section>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section"></h3>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ Copyright 2023, Paula Munoz
+  </li>  
+</ul>
+    </div>   
+  </div>
+</footer>
+
+
+
+</body></html>
