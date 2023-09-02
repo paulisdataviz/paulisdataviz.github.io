@@ -1,11 +1,11 @@
 ---
-title: "Tableau Workbook Analyzer App with R Flexdashboard and Shiny"
-description: "Building an App to analyze .twb files, extract & download formulas from calculated fields, and retrieve formatting options such as fonts and Hex Colors used."
+title: "Tableau Workbook Analyzer: A Flexdashboard & Shiny Application"
+description: "Building an app to dissect .twb files: extracting formulas from calculated fields, downloading them, and capturing formatting details like fonts and hex color codes."
 author:
   - name: Paula Muñoz
     url: https://paulisdataviz.shinyapps.io/tableau_workbook_analyzer/
 categories: [Tableau, R, Flexdashboard, Shiny, XML] # self-defined categories
-date: 11-20-2022
+date: 09-02-2023
 image: tableau_workbook_analyzer.png
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 
