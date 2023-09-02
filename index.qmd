@@ -39,13 +39,9 @@ I'm passionate about:
 
 -   Data Wrangling
 
+-   Data Governance
+
 -   Data Science
-
--   R
-
--   Tableau
-
--   SQL
 
 ------------------------------------------------------------------------
 
