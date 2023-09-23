@@ -5,12 +5,14 @@ author:
   - name: Paula Muñoz
     url: https://paulisdataviz.shinyapps.io/tableau_workbook_analyzer/
 categories: [Tableau, R, Flexdashboard, Shiny, XML] # self-defined categories
-date: 09-02-2023
+date: 09-23-2023
 image: tableau_workbook_analyzer.png
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 
 editor: visual
 ---
+
+***This blog was last updated on 2023-09-23 to reflect the latest features added to the*** [Tableau Workbook Analyzer App](https://paulisdataviz.shinyapps.io/tableau_workbook_analyzer/)[!](https://paulisdataviz.shinyapps.io/tableau_workbook_analyzer/)
 
 If you are a Tableau user or developer you may have found yourself in a situation where you need or would like to extract **all** **formulas at once** from all calculated fields to later find out there is no simple way to achieve this task. 😟
 
@@ -93,15 +95,19 @@ This section contains a summary of the workbook including:
 
 -   **Used Fields list:** List detailing field names, frequencies, and field type.
 
--   **Calculated Field Dependencies list:** Discover which fields contribute to each Calculated Field.
-
 -   **Unused Fields list:** List of unused fields with their field type.
 
-![](tab1_bottom.png)
+    ![](tab1_bottom.png)
+
+-   **Calculated Field Dependencies Network:** Discover which fields contribute to each Calculated Field in a visual way \<\-- ***New Featured added on 2023-09-23***
+
+-   **Calculated Field Dependencies list:** Discover which fields contribute to each Calculated Field.
+
+    ![](images/network.jpg)
 
 #### **Column & Calculated Fields Details**
 
-I would think this section contains the most interesting information... It has all the deatils about the columns / fields.
+I would think this section contains the most interesting information... It has all the details about the columns / fields.
 
 First of all, the side panel has various filters:
 
@@ -185,6 +191,16 @@ While I've taken every effort to ensure the reliability of this app, I cannot gu
 :::
 
 ------------------------------------------------------------------------
+
+### Feature Updates implemented on 2023-09-23
+
+-   Network Diagram to display field dependencies
+
+-   Increased the file size limit to allow analyzing bigger .twb files
+
+-   Fixed bug where no tables were showing if data source was connecting to a database
+
+-   Added a "Send me a message" form to allow users to provide feedback or report issues from the app itself.
 
 ### [Ready to test App, click here!](https://paulisdataviz.shinyapps.io/tableau_workbook_analyzer/)
 
