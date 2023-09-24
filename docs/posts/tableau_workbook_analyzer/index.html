@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Paula Muñoz">
-<meta name="dcterms.date" content="2023-09-02">
+<meta name="dcterms.date" content="2023-09-23">
 <meta name="description" content="Building an app to dissect .twb files: extracting formulas from calculated fields, downloading them, and capturing formatting details like fonts and hex color codes.">
 
 <title>Paula Muñoz - Tableau Workbook Analyzer: A Flexdashboard &amp; Shiny Application</title>
@@ -123,7 +123,7 @@ ul.task-list{list-style: none;}
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 2, 2023</p>
+        <p class="date">September 23, 2023</p>
       </div>
     </div>
       
@@ -144,6 +144,7 @@ ul.task-list{list-style: none;}
   <li><a href="#what-analysis-information-is-being-returned-by-the-app" id="toc-what-analysis-information-is-being-returned-by-the-app" class="nav-link" data-scroll-target="#what-analysis-information-is-being-returned-by-the-app">What Analysis / information is being returned by the App?</a></li>
   <li><a href="#where-is-the-app-hosted" id="toc-where-is-the-app-hosted" class="nav-link" data-scroll-target="#where-is-the-app-hosted">Where is the App hosted?</a></li>
   <li><a href="#about-security-and-storage" id="toc-about-security-and-storage" class="nav-link" data-scroll-target="#about-security-and-storage">About Security and Storage</a></li>
+  <li><a href="#feature-updates-implemented-on-2023-09-23" id="toc-feature-updates-implemented-on-2023-09-23" class="nav-link" data-scroll-target="#feature-updates-implemented-on-2023-09-23">Feature Updates implemented on 2023-09-23</a></li>
   <li><a href="#ready-to-test-app-click-here" id="toc-ready-to-test-app-click-here" class="nav-link" data-scroll-target="#ready-to-test-app-click-here"><span>Ready to test App, click here!</span></a></li>
   </ul></li>
   </ul>
@@ -155,6 +156,7 @@ ul.task-list{list-style: none;}
 
 
 
+<p><strong><em>This blog was last updated on 2023-09-23 to reflect the latest features added to the</em></strong> <a href="https://paulisdataviz.shinyapps.io/tableau_workbook_analyzer/">Tableau Workbook Analyzer App</a><a href="https://paulisdataviz.shinyapps.io/tableau_workbook_analyzer/">!</a></p>
 <p>If you are a Tableau user or developer you may have found yourself in a situation where you need or would like to extract <strong>all</strong> <strong>formulas at once</strong> from all calculated fields to later find out there is no simple way to achieve this task. 😟</p>
 <p>I have been in this situation several times, and after giving it some thought, I decided to build my own App and leverage the capabilities of <strong>Flexdashboard + Shiny</strong> in <strong>R.</strong></p>
 <p>This is the first app I have ever built, and I know it is not perfect, but I learned a lot and had so much fun along the way, but most importantly I know it would be very useful and hope you would think the same.</p>
@@ -228,13 +230,15 @@ ul.task-list{list-style: none;}
 <p><img src="tab1_top.png" class="img-fluid"></p>
 <h4 id="workbook-summary---bottom-section" class="anchored"><strong>Workbook Summary - Bottom Section</strong></h4></li>
 <li><p><strong>Used Fields list:</strong> List detailing field names, frequencies, and field type.</p></li>
-<li><p><strong>Calculated Field Dependencies list:</strong> Discover which fields contribute to each Calculated Field.</p></li>
-<li><p><strong>Unused Fields list:</strong> List of unused fields with their field type.</p></li>
+<li><p><strong>Unused Fields list:</strong> List of unused fields with their field type.</p>
+<p><img src="tab1_bottom.png" class="img-fluid"></p></li>
+<li><p><strong>Calculated Field Dependencies Network:</strong> Discover which fields contribute to each Calculated Field in a visual way &lt;-- <strong><em>New Featured added on 2023-09-23</em></strong></p></li>
+<li><p><strong>Calculated Field Dependencies list:</strong> Discover which fields contribute to each Calculated Field.</p>
+<p><img src="images/network.jpg" class="img-fluid"></p></li>
 </ul>
-<p><img src="tab1_bottom.png" class="img-fluid"></p>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>I would think this section contains the most interesting information… It has all the deatils about the columns / fields.</p>
+<p>I would think this section contains the most interesting information… It has all the details about the columns / fields.</p>
 <p>First of all, the side panel has various filters:</p>
 <table class="table">
 <colgroup>
@@ -326,6 +330,15 @@ ul.task-list{list-style: none;}
 </div>
 </div>
 <hr>
+</section>
+<section id="feature-updates-implemented-on-2023-09-23" class="level3">
+<h3 class="anchored" data-anchor-id="feature-updates-implemented-on-2023-09-23">Feature Updates implemented on 2023-09-23</h3>
+<ul>
+<li><p>Network Diagram to display field dependencies</p></li>
+<li><p>Increased the file size limit to allow analyzing bigger .twb files</p></li>
+<li><p>Fixed bug where no tables were showing if data source was connecting to a database</p></li>
+<li><p>Added a “Send me a message” form to allow users to provide feedback or report issues from the app itself.</p></li>
+</ul>
 </section>
 <section id="ready-to-test-app-click-here" class="level3">
 <h3 class="anchored" data-anchor-id="ready-to-test-app-click-here"><a href="https://paulisdataviz.shinyapps.io/tableau_workbook_analyzer/">Ready to test App, click here!</a></h3>
