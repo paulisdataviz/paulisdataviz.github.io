@@ -1,0 +1,34 @@
+---
+title: "Du Bois Visualization Challenge 2024 - Original Plate 12"
+description: "Recreating Original Plate 12 'Slave and Free Negroes' in Tableau, Power BI and Looker Studio"
+author:
+  - name: Paula Muñoz
+    url: https://public.tableau.com/app/profile/paula.munoz/viz/DuboisChallenge2-OriginalPlate12/DashboardDuboisOriginalPlate12
+    
+categories: [Tableau, Power BI, Looker Studio] # self-defined categories
+date: 02-18-2024
+image: tableau_workbook_analyzer.png
+draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
+
+editor: visual
+---
+
+IIt's been some time since I last participated in a Data Visualization Community Challenge. Inspired by several posts from my #datafam peers, I've decided to take on this week's Du Bois Visualization Challenge.
+
+## What is the Du Bois Visualization Challenge?
+
+-   It is a community project hosted by the Data Visualization Society
+
+-   ["The goal is to celebrate the data visualization legacy of W.E.B Du Bois by recreating the visualizations from the 1900 Paris Exposition using modern tools".](https://github.com/ajstarks/dubois-data-portraits/blob/master/challenge/2024/README.md)
+
+## Week 2 Challenge - "Slaves and Free Negroes" Portrait (Original Plate 12)
+
+-   This weeks challenge consist in recreating the Original Plate 12: Slaves and Free Negroes Portrait, see Original Portrait below:
+
+    ![](original-plate-12.jpg){width="560"}
+
+Please reach out if you have any questions or comments!
+
+Thanks;
+
+Paula M
