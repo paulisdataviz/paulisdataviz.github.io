@@ -3,8 +3,7 @@ title: "Du Bois Visualization Challenge 2024 - Original Plate 12"
 description: "Recreating Original Plate 12 'Slave and Free Negroes' in Tableau, Power BI and Looker Studio"
 author:
   - name: Paula Muñoz
-    url: https://public.tableau.com/app/profile/paula.munoz/viz/DuboisChallenge2-OriginalPlate12/DashboardDuboisOriginalPlate12
-    
+
 categories: [Tableau, Power BI, Looker Studio] # self-defined categories
 date: 02-18-2024
 image: tableau_workbook_analyzer.png
