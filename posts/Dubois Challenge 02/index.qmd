@@ -3,7 +3,7 @@ title: "Du Bois Visualization Challenge 2024 - Original Plate 12"
 description: "Recreating Original Plate 12 'Slave and Free Negroes' in Tableau, Power BI and Looker Studio"
 author:
   - name: Paula Muñoz
-
+    
 categories: [Tableau, Power BI, Looker Studio] # self-defined categories
 date: 02-18-2024
 image: tableau_workbook_analyzer.png
@@ -16,15 +16,27 @@ IIt's been some time since I last participated in a Data Visualization Community
 
 ## What is the Du Bois Visualization Challenge?
 
--   It is a community project hosted by the Data Visualization Society
+-   It is a community project hosted by the Data Visualization Society, with the primary goal of recreating the visualizations from 1900 Paris Exposition using modern tools.
 
--   ["The goal is to celebrate the data visualization legacy of W.E.B Du Bois by recreating the visualizations from the 1900 Paris Exposition using modern tools".](https://github.com/ajstarks/dubois-data-portraits/blob/master/challenge/2024/README.md)
+-   [Read the details here](https://github.com/ajstarks/dubois-data-portraits/blob/master/challenge/2024/README.md)
 
 ## Week 2 Challenge - "Slaves and Free Negroes" Portrait (Original Plate 12)
 
--   This weeks challenge consist in recreating the Original Plate 12: Slaves and Free Negroes Portrait, see Original Portrait below:
+-   This week's challenge involves recreating the original Plate 12: "Slaves and Free Negroes" portrait. See the original portrait below:
 
-    ![](original-plate-12.jpg){width="560"}
+    ![](original-plate-12.jpg){width="421"}
+
+## Recreating the visualization in three different BI Tools
+
+#### Data
+
+-   The data consisted of three numeric fields: **Year**, **Slave**, **Free**
+
+-   To facilitate the visualization process it is best to unpivot / re-shape the data to display: **Year**, **Attribute**, V**alue**
+
+|  From                                                   |  To                                                 |
+|------------------------------------|------------------------------------|
+|  ![](data_pict.png){width="128"}                        |  ![](data_unpivot.png){width="219"}                 |
 
 Please reach out if you have any questions or comments!
 

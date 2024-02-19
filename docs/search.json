@@ -74,13 +74,20 @@
     "href": "posts/Dubois Challenge 02/index.html#what-is-the-du-bois-visualization-challenge",
     "title": "Du Bois Visualization Challenge 2024 - Original Plate 12",
     "section": "What is the Du Bois Visualization Challenge?",
-    "text": "What is the Du Bois Visualization Challenge?\n\nIt is a community project hosted by the Data Visualization Society\n“The goal is to celebrate the data visualization legacy of W.E.B Du Bois by recreating the visualizations from the 1900 Paris Exposition using modern tools”."
+    "text": "What is the Du Bois Visualization Challenge?\n\nIt is a community project hosted by the Data Visualization Society, with the primary goal of recreating the visualizations from 1900 Paris Exposition using modern tools.\nRead the details here"
   },
   {
     "objectID": "posts/Dubois Challenge 02/index.html#week-2-challenge---slaves-and-free-negroes-portrait-original-plate-12",
     "href": "posts/Dubois Challenge 02/index.html#week-2-challenge---slaves-and-free-negroes-portrait-original-plate-12",
     "title": "Du Bois Visualization Challenge 2024 - Original Plate 12",
     "section": "Week 2 Challenge - “Slaves and Free Negroes” Portrait (Original Plate 12)",
-    "text": "Week 2 Challenge - “Slaves and Free Negroes” Portrait (Original Plate 12)\n\nThis weeks challenge consist in recreating the Original Plate 12: Slaves and Free Negroes Portrait, see Original Portrait below:\n\n\nPlease reach out if you have any questions or comments!\nThanks;\nPaula M"
+    "text": "Week 2 Challenge - “Slaves and Free Negroes” Portrait (Original Plate 12)\n\nThis week’s challenge involves recreating the original Plate 12: “Slaves and Free Negroes” portrait. See the original portrait below:"
+  },
+  {
+    "objectID": "posts/Dubois Challenge 02/index.html#recreating-the-visualization-in-three-different-bi-tools",
+    "href": "posts/Dubois Challenge 02/index.html#recreating-the-visualization-in-three-different-bi-tools",
+    "title": "Du Bois Visualization Challenge 2024 - Original Plate 12",
+    "section": "Recreating the visualization in three different BI Tools",
+    "text": "Recreating the visualization in three different BI Tools\n\nData\n\nThe data consisted of three numeric fields: Year, Slave, Free\nTo facilitate the visualization process it is best to unpivot / re-shape the data to display: Year, Attribute, Value\n\n\n\n\n\n\n\n\nFrom\nTo\n\n\n\n\n\n\n\n\n\nPlease reach out if you have any questions or comments!\nThanks;\nPaula M"
   }
 ]
