@@ -32,7 +32,7 @@ This week's challenge involves recreating the original Plate 12: "Slaves and Fre
 
 My objective for this exercise was to stay as true to the original visualization as possible, while exploring the features and limitations of each tool.
 
-#### Data
+### Data
 
 -   The data consisted of three numeric fields: **Year**, **Slave**, **Free**
 
@@ -42,7 +42,7 @@ My objective for this exercise was to stay as true to the original visualization
 |---------------------------------|------------------------------------|
 | ![](data_pict.png){width="128"} | ![](data_unpivot.png){width="223"} |
 
-#### Comparative Analysis
+### Comparative Analysis
 
 After completing the recreating of the visualization across all three tools, here are my takeaways:
 
@@ -59,7 +59,7 @@ After completing the recreating of the visualization across all three tools, her
 | **Customization and Aesthetics**                  | ✅      | ⚠️       | ⚠️            |
 | **Sharing Interactive Dashboards with Community** | ✅      | ⚠️       | ⚠️            |
 
-#### Final Dashboards / Reports
+### Final Dashboards / Reports
 
 Select the tabs below to navigate through the interactive reports created using each BI tool.
 
