@@ -6,7 +6,7 @@ author:
     
 categories: [Tableau, Power BI, Looker Studio] # self-defined categories
 date: 02-18-2024
-image: challenge2viz.png
+image: portratit.png
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 
 editor: visual
