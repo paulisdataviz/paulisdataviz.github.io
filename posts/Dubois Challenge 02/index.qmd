@@ -12,7 +12,9 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 editor: visual
 ---
 
-IIt's been some time since I last participated in a Data Visualization Community Challenge. Inspired by several posts from my #datafam peers, I've decided to take on this week's Du Bois Visualization Challenge.
+IIt's been some time since I last participated in a Data Visualization Community Challenge. Inspired by several posts from my #datafam peers, I've decided to take on this week's Du Bois Visualization Challenge using three of today's most popular Business Intelligence (BI) tools: Tableau, Power BI, and Looker Studio.
+
+The experience was not only a test of my abilities but also an opportunity to evaluate these tools' capabilities in the context of historical data visualization.
 
 ## What is the Du Bois Visualization Challenge?
 
@@ -26,19 +28,91 @@ IIt's been some time since I last participated in a Data Visualization Community
 
     ![](original-plate-12.jpg){width="421"}
 
-## Recreating the visualization in three different BI Tools
+## Recreating the visualization in three different BI Tools (Tableau, Power BI, Looker Studio)
+
+My objective for this exercise was to stay as true to the original visualization as possible, while exploring the features and limitations of each tool.
 
 #### Data
 
 -   The data consisted of three numeric fields: **Year**, **Slave**, **Free**
 
--   To facilitate the visualization process it is best to unpivot / re-shape the data to display: **Year**, **Attribute**, V**alue**
+-   To facilitate the visualization process it is best to unpivot / re-shape the data to display: **Year**, **Attribute**, **Value**
 
-|  From                                                   |  To                                                 |
-|------------------------------------|------------------------------------|
-|  ![](data_pict.png){width="128"}                        |  ![](data_unpivot.png){width="219"}                 |
++----------------------------------+------------------------------------+
+| From                             | To                                 |
++==================================+====================================+
+| ![](data_pict.png){width="153"}  | ![](data_unpivot.png){width="257"} |
++----------------------------------+------------------------------------+
 
-Please reach out if you have any questions or comments!
+#### Comparative Analysis
+
+After completing the recreating of the visualization across all three tools, here are my takeaways:
+
+-   **Tableau** was the best tool for recreating the visualization with the highest fidelity to the original.
+
+-   Both **Tableau** and **Power BI** facilitate the easy unpivoting/reshaping of the data.
+
+-   **Tableau** and **Looker Studio** offer straightforward means to share the interactive dashboards with the Community.
+
++---------------------------------------------------+--------------+----------------+----------------------+
+| Criteria                                          | Tableau      | Power BI       | Looker Studio        |
++===================================================+==============+================+======================+
+| **Ease of recreating Historical Visualization**   | ## ✅        | ## ⚠️          | ## ⚠️                |
++---------------------------------------------------+--------------+----------------+----------------------+
+| **Reshaping data**                                | ## ✅        | ## ✅          | ## ❌                |
++---------------------------------------------------+--------------+----------------+----------------------+
+| **Customization and Aesthetics**                  | ## ✅        | ## ⚠️          | ## ⚠️                |
++---------------------------------------------------+--------------+----------------+----------------------+
+| **Sharing Interactive Dashboards with Community** | ## ✅        | ## ⚠️          | ## ✅                |
++---------------------------------------------------+--------------+----------------+----------------------+
+
+#### Final Dashboards / Reports
+
+Select the tabs below to navigate through the interactive reports created using each BI tool.
+
+::: panel-tabset
+## Tableau Dashboard
+
+The final visualization in Tableau was strikingly close to the original, thanks to its robust customization options.
+
+-   **Ease of recreating Visualization - High.** Robust customization options for closely matching original aesthetics.
+
+-   **Reshaping data - Easy.** Ability to unpivot data directly in Data Source Pane.
+
+-   **Sharing Interactive Dashboards - Easy.** Ability to share Interactive Dashboard in Tableau Public.
+
+```{=html}
+<iframe width="780" height="900" src="https://public.tableau.com/views/DuboisChallenge2-OriginalPlate12/DashboardDuboisOriginalPlate12?:showVizHome=no&:embed=true" title="Tableau Recreation"></iframe>
+```
+## Power BI Report
+
+The visualization created with Power BI captured the essence of the original, however some limitations in design customization are apparent.
+
+-   **Ease of recreating Visualization - Low.** Customization / Formatting Options. unable to use Area Chart with Year as continuous Date in the Y axis. Used Stacked Bar chart instead.
+
+-   **Reshaping data - Easy.** Ability to unpivot data directly in Power Query.
+
+-   **Sharing Interactive Dashboards - Limited.** May require Power BI Pro License to share .
+
+```{=html}
+<iframe width="770" height="900" src="https://app.powerbi.com/view?r=eyJrIjoiMWVhYzgyNDMtNTRkZC00MDRmLWFmZWEtN2NmZDU2OTNjMjAxIiwidCI6ImQ1N2QzMmNjLWMxMjEtNDg4Zi1iMDdiLWRmZTcwNTY4MGM3MSIsImMiOjN9" frameborder="0" allowFullScreen="true" title="PowerBi Recreation"></iframe>
+```
+## Looker Studio Report
+
+Similar to Power BI, the visualization created with Looker Studio captured the essence of the original, however some limitations in design customization are apparent.
+
+-   **Ease of recreating Visualization - Low.** Customization / Formatting Options. unable to use Area Chart with Year as continuous Date in the Y axis. Used Stacked Bar chart instead.
+
+-   **Reshaping data - Not Posible.** Data needs to be reshaped before loading it into Looker Studio, or through a direct connection to a Database.
+
+-   **Sharing Interactive Dashboards - Easy.** Ability to share Interactive Dashboard / Report through link. (Requires permissions to be updated)
+
+```{=html}
+<iframe width="770" height="900" src="https://lookerstudio.google.com/embed/reporting/e22fc00f-7a3a-44eb-9cd7-4de23c0cffda/page/X7fqD" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+```
+:::
+
+Please reach out if you have any questions on how these Dashboards were created.
 
 Thanks;
 
