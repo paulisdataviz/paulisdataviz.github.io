@@ -26,7 +26,7 @@ It is a community project hosted by the Data Visualization Society, with the pri
 
 This week's challenge involves recreating the original Plate 12: "Slaves and Free Negroes" portrait. See the original portrait below:
 
-![](original-plate-12.jpg){width="421"}
+![](original-plate-12.jpg){fig-align="center" width="395"}
 
 ## Recreating the visualization in three different BI Tools (Tableau, Power BI, Looker Studio)
 
@@ -40,7 +40,7 @@ My objective for this exercise was to stay as true to the original visualization
 
 | From                            | To                                 |
 |---------------------------------|------------------------------------|
-| ![](data_pict.png){width="153"} | ![](data_unpivot.png){width="257"} |
+| ![](data_pict.png){width="128"} | ![](data_unpivot.png){width="223"} |
 
 #### Comparative Analysis
 
@@ -98,14 +98,14 @@ Similar to Power BI, the visualization created with Looker Studio captured the e
 
 -   **Reshaping data - Not Posible.** Data needs to be reshaped before loading it into Looker Studio, or through a direct connection to a Database.
 
--   **Sharing Interactive Dashboards - Limited.** The ability to share Interactive Dashboard / Report through a link is rather easy. (Requires permissions to be updated), however the embedding of the dashboard works inconsistently. For this reason I'm including the [Link to Dashboard](https://lookerstudio.google.com/embed/reporting/e22fc00f-7a3a-44eb-9cd7-4de23c0cffda/page/X7fqD) in case the embedding below doesn't work.
+-   **Sharing Interactive Dashboards - Limited.** The ability to share Interactive Dashboard / Report through a link is rather easy. (Requires permissions to be updated), however the embedding of the dashboard works inconsistently. For this reason I'm including the [Link to Report](https://lookerstudio.google.com/embed/reporting/e22fc00f-7a3a-44eb-9cd7-4de23c0cffda/page/X7fqD) in case the embedding below doesn't work.
 
 ```{=html}
 <iframe width="600" height="600" src="https://lookerstudio.google.com/embed/reporting/e22fc00f-7a3a-44eb-9cd7-4de23c0cffda/page/X7fqD" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
 ```
 :::
 
-Please reach out if you have any questions on how these Dashboards were created.
+Please reach out if you have any questions.
 
 Thanks;
 
